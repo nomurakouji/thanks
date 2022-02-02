@@ -1,24 +1,38 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+## 開発言語
+- ruby 3.0.1
+- rails 6.0.4.4
 
-* Ruby version
+## 就業Termの技術
+- devise
+- お気に入り機能
 
-* System dependencies
+## カリキュラム外の技術
+ransack
 
-* Configuration
+## 実行手順
+```
+$ git clone　git@github.com:nomurakouji/thanks.git
+$ cd thanks
+$ bundle install
+$ rails db:create 
+$ rails db:migrate
+$ rails s
+```
 
-* Database creation
+## カタログ設計
+https://docs.google.com/spreadsheets/d/1J0m85uAoclK1oWRukrjUfAi9Qfbl4Wh2kRWjiu51MQA/edit?usp=sharing
 
-* Database initialization
+## テーブル定義書
+https://docs.google.com/spreadsheets/d/1J0m85uAoclK1oWRukrjUfAi9Qfbl4Wh2kRWjiu51MQA/edit?usp=sharing
 
-* How to run the test suite
+## ワイヤーフレーム
+https://cacoo.com/diagrams/zWAFO1jlH4k4lx5Q/62A01
 
-* Services (job queues, cache servers, search engines, etc.)
+## 画面遷移図
+<img width="1130" alt="スクリーンショット 2022-02-02 13 48 43" src="https://user-images.githubusercontent.com/93464641/152094780-4cf388a1-126d-4a9c-95f7-bfc555688835.png">
 
-* Deployment instructions
-
-* ...
+## ER図
+<img width="997" alt="スクリーンショット 2022-02-02 9 08 47" src="https://user-images.githubusercontent.com/93464641/152094839-386cee83-cf10-4910-b7e1-410c2af2c77e.png">
