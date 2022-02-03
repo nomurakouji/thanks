@@ -38,4 +38,5 @@ https://cacoo.com/diagrams/zWAFO1jlH4k4lx5Q/B7053
 
 ## ER図
 https://cacoo.com/diagrams/zWAFO1jlH4k4lx5Q/3F0E6
-<img width="854" alt="スクリーンショット 2022-02-02 23 23 29" src="https://user-images.githubusercontent.com/93464641/152172301-2964049b-898a-4fba-bb9b-2376fd270b49.png">
+<img width="608" alt="スクリーンショット 2022-02-03 12 28 40" src="https://user-images.githubusercontent.com/93464641/152276671-cc745f1b-2df3-4715-8933-d3a721695c2e.png">
+
