@@ -30,9 +30,12 @@ https://docs.google.com/spreadsheets/d/1J0m85uAoclK1oWRukrjUfAi9Qfbl4Wh2kRWjiu51
 
 ## ワイヤーフレーム
 https://cacoo.com/diagrams/zWAFO1jlH4k4lx5Q/62A01
+https://cacoo.com/diagrams/zWAFO1jlH4k4lx5Q/49532
 
 ## 画面遷移図
-<img width="575" alt="スクリーンショット 2022-02-02 23 45 50" src="https://user-images.githubusercontent.com/93464641/152176419-9ef97cd7-72c6-4b18-ac67-bd9487fb6471.png">
+https://cacoo.com/diagrams/zWAFO1jlH4k4lx5Q/B7053
+<img width="985" alt="スクリーンショット 2022-02-03 11 44 07" src="https://user-images.githubusercontent.com/93464641/152272913-18d00edf-4398-482e-bb00-478ac1f07d5f.png">
 
 ## ER図
+https://cacoo.com/diagrams/zWAFO1jlH4k4lx5Q/3F0E6
 <img width="854" alt="スクリーンショット 2022-02-02 23 23 29" src="https://user-images.githubusercontent.com/93464641/152172301-2964049b-898a-4fba-bb9b-2376fd270b49.png">
