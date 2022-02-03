@@ -14,7 +14,7 @@ ransack
 
 ## 実行手順
 ```
-$ git clone　git@github.com:nomurakouji/thanks.git
+$ git clone git@github.com:nomurakouji/thanks.git
 $ cd thanks
 $ bundle install
 $ rails db:create 
