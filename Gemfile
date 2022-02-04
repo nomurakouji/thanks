@@ -61,3 +61,5 @@ gem 'rubocop', require: false
 gem 'devise'
 gem 'rexml'
 gem 'devise-i18n'
+gem 'carrierwave'
+gem 'mini_magick'
