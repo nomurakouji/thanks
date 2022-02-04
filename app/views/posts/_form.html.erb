@@ -10,14 +10,20 @@
       </ul>
     </div>
   <% end %>
+  
 
   <div class="field">
-    <%= form.label :name %>
+    <%= form.label :From %>
+    <%= @post_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :To %>
     <%= form.text_area :name %>
   </div>
 
   <div class="field">
-    <%= form.label :comment %>
+    <%= form.label :Thanks! %>
     <%= form.text_area :comment %>
   </div>
 
