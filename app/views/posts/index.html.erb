@@ -1,11 +1,13 @@
-<p id="notice"><%= notice %></p>
+
 
 <h1>Posts</h1>
 
 <table>
   <thead>
     <tr>
+      <th>From</th>    
       <th>Comment</th>
+      <th>To</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -13,7 +15,9 @@
   <tbody>
     <% @posts.each do |post| %>
       <tr>
+        <td><%= post.user.name %></td>
         <td><%= post.comment %></td>
+        <td><%= post.user.name %></td>
         <td><%= link_to 'Show', post %></td>
         <td><%= link_to 'Edit', edit_post_path(post) %></td>
         <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
