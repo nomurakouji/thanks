@@ -11,12 +11,13 @@
 
   <body>
     <% if user_signed_in? %>
-      <%= link_to "投稿する", posts_path %>
+      <%= link_to "投稿する", new_post_path %>
       <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
     <% else %>
       <%= link_to "新規登録", new_user_registration_path %>
       <%= link_to "ログイン", new_user_session_path %>
       <%= link_to "ゲストログイン", homes_guest_sign_in_path, method: :post %>
+      <%= link_to "ゲスト管理者ログイン", homes_guest_admin_sign_in_path, method: :post %>
     <% end %>
 
     <% if notice %>

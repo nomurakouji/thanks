@@ -5,6 +5,16 @@ class HomesController < ApplicationController
     end
   # 上記のuserをログインさせることができる(deviseのメソッド)
   sign_in user
-  redirect_to posts_path, notice: 'ゲストユーザーとしてログインしました'
+  redirect_to root_path, notice: 'ゲストユーザーとしてログインしました'
+  end
+
+  def new_guestadmin
+    guestadmin = User.find_or_create_by(email: 'guestadmin@guestadmin.com') do |guestadmin|
+      guestadmin.password = SecureRandom.urlsafe_base64
+      guestadmin.admin = true
+    end
+  # 上記のguestadminをログインさせることができる(deviseのメソッド)
+  sign_in guestadmin
+  redirect_to root_path, notice: 'ゲスト管理者ユーザーとしてログインしました'
   end
 end
