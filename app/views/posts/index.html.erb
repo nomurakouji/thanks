@@ -1,6 +1,9 @@
-
-
-<h1>Posts</h1>
+<%# current_userがnilの時にエラーを出さずにadmin権限の確認 %>
+<% if current_user.try(:admin?) %>
+  <h1>Posts_admin </h1>
+<% else %>
+  <h1>Posts</h1>
+<% end %>
 
 <table>
   <thead>
