@@ -23,8 +23,7 @@
         <td><%= post.created_at.strftime('%Y/%m/%d/%R') %></td>
         <td><%= post.user.name %></td>
         <td><%= post.user.name %></td>
-        <td></td>
-        <%# <td><%= image_tag post.user.image.url %></td> %>
+        <td><img src = <%= post.user.image.url %> class = "icon_image"></td>
         <td><%= post.comment %></td>
         <td><%= link_to 'Show', post %></td>
         <td><%= link_to 'Edit', edit_post_path(post) %></td>
@@ -37,3 +36,5 @@
 <br>
 
 <%= link_to 'New Post', new_post_path %>
+<br>
+<%= link_to 'User List', new_post_path %>

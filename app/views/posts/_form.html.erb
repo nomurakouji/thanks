@@ -21,6 +21,11 @@
     <%= form.text_area :name %>
   </div>
 
+   <div class="field">
+    <%= form.label :image %><br/>
+    <%= form.file_field :image, class: "image" %>
+  </div>
+
   <div class="field">
     <%= form.label :Thanks! %>
     <%= form.text_area :comment %>
