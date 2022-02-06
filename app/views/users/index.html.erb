@@ -1,0 +1,24 @@
+
+<table>
+  <tr>
+    <th>ユーザーID</th>
+    <th>部門</th>
+    <th>氏名</th>
+    <th>email</th>
+  </tr>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.id %></td>
+        <td><% user.id %></td>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <% if current_user.admin == true  || ( current_user.id == user.id )%>
+         <td><%= link_to "編集", edit_user_path(user) %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to '投稿一覧に戻る',  posts_path %>
