@@ -8,7 +8,7 @@
 
 <p>
   <strong>Image:</strong>
-  <img src = <%= User.find(@post.receiver_id).image.url %> class = "icon_image"> 
+  <img src = <%= User.find(@post.receiver_id).image.url%> class = "icon_image">  
 </p>
 
  <% if current_user.admin == true  || ( current_user.id == @post.user_id )%>

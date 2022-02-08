@@ -4,11 +4,10 @@
     <%= @user.id %>
   </div>
   
-    <%# <div>
-    <%= f.label :department %><br>
-    <%# <%= f.text_field :department.name %> %>
-  <%# </div> %> %>
-
+ <div class="field">
+    <%= f.label :department %>
+    <%= f.collection_select :department_id, Department.all, :id, :name %>
+  </div>
 
   <div>
     <%= f.label :name %><br>
