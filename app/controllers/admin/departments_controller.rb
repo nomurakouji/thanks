@@ -15,7 +15,7 @@ class Admin::DepartmentsController < ApplicationController
           format.html { render :new, status: :unprocessable_entity }
           format.json { render json: @department.errors, status: :unprocessable_entity }
         end
-      end
+    end
   end
 
   def show
