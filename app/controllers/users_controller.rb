@@ -9,6 +9,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
+    #@department = Department.find(params[:department_id])
     if @user.update(user_params)
         redirect_to users_path, notice: "ユーザーを編集しました！"
       else

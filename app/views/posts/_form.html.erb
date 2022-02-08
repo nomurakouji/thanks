@@ -18,7 +18,7 @@
 
   <div class="field">
     <%= form.label :To %>
-    <%= form.text_area :name %>
+    <%= form.collection_select :receiver_id, User.all, :id, :name, include_blank: "選択して下さい" %>
   </div>
 
   <div class="field">
@@ -30,3 +30,4 @@
     <%= form.submit %>
   </div>
 <% end %>
+

@@ -22,8 +22,10 @@
       <tr>
         <td><%= post.created_at.strftime('%Y/%m/%d/%R') %></td>
         <td><%= post.user.name %></td>
-        <td><%= post.user.name %></td>
-        <td><img src = <%= post.user.image.url %> class = "icon_image"></td>
+        <td><%= User.find(post.receiver_id).name %></td>  
+        <%# 下記だとなぜエラー？ %>
+        <%# <td><%= post.receiver_id.name %></td>   %>
+        <td><img src = <%= User.find(post.receiver_id).image.url %> class = "icon_image"></td>
         <td><%= post.comment %></td>
         <td><%= link_to 'Show', post %></td>
         <% if current_user.admin == true  || ( current_user.id == post.user_id )%>

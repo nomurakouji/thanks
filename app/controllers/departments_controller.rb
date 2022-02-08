@@ -8,7 +8,7 @@ class DepartmentsController < ApplicationController
     @department = Department.new(department_params)
     respond_to do |format|
         if @department.save
-          format.html { redirect_to department_url(@department), notice: "department was successfully created." }
+          format.html { redirect_to departments_url, notice: "department was successfully created." }
           format.json { render :show, status: :created, location: @department }
         else
           format.html { render :new, status: :unprocessable_entity }
