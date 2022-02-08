@@ -1,10 +1,13 @@
 class UsersController < ApplicationController
+  before_action :set_post, only: %i[ show edit update destroy ]
   def index
     @users = User.all
   end
 
   def edit
-    @user = User.find(params[:id])
+  end
+
+  def show
   end
 
   def update
@@ -25,8 +28,19 @@ class UsersController < ApplicationController
     #   end
     # end
   end
+  
+  def destroy
+    @user.destroy
+    respond_to do |format|
+      format.html { redirect_to users_url, notice: "User was successfully destroyed." }
+      format.json { head :no_content }
+    end
+  end
 
   private
+  def set_post
+    @user = User.find(params[:id])
+  end
   # Only allow a list of trusted parameters through.
   def user_params
     params.require(:user).permit(:name, :email, :image, :image_cache)

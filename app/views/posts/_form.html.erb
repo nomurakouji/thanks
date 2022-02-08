@@ -16,10 +16,6 @@
     <%= @post_name %>
   </div>
 
-  <div class="field">
-    <%= form.label :To %>
-    <%= form.collection_select :receiver_id, User.all, :id, :name, include_blank: "選択して下さい" %>
-  </div>
 
   <div class="field">
     <%= form.label :Thanks! %>

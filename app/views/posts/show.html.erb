@@ -11,8 +11,6 @@
   <img src = <%= User.find(@post.receiver_id).image.url %> class = "icon_image"> 
 </p>
 
-
-
  <% if current_user.admin == true  || ( current_user.id == @post.user_id )%>
   <%= link_to 'Edit', edit_post_path(@post) %>
   <%= link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?' } %>
