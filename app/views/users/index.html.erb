@@ -12,7 +12,7 @@
         <td><%= user.id %></td>
         <%# <td><%= user.department_id.name %></td> %>
         <%# <td><%= User.find(department_id).name %></td> %>
-        <td><%= user.department_id%></td>
+        <td><%= user.department_id %></td>
         <td><%= user.name %></td>
         <td><%= user.email %></td>
         <% if current_user.admin == true  || ( current_user.id == user.id )%>
