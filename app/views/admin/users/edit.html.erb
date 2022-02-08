@@ -1,0 +1,32 @@
+<%= form_with(model: @user, local: true) do |f| %>
+  <div>
+    <h5>ID</h5>
+    <%= @user.id %>
+  </div>
+  
+ <div class="field">
+    <%= f.label :department %>
+    <%= f.collection_select :department_id, Department.all, :id, :name %>
+  </div>
+
+  <div>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  
+  <div>
+    <%= f.label :email %><br>
+    <%= f.text_area :email %>
+  </div>
+
+  <div class="field">
+    <%= f.label :image %><br/>
+    <img src = <%= @user.image.url %> class = "icon_image">
+    <br>
+    <%= f.file_field :image, class: "image" %>
+  </div>
+  
+  <div><%= f.submit "編集する" %></div>
+<% end %>
+
+<%= link_to "ユーザー管理", admin_users_path %>
