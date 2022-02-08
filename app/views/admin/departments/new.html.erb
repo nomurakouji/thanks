@@ -1,9 +1,3 @@
-<%# <h1>New department</h1>
-
-<%= render 'form', department: @department %>
-
-<%# <%= link_to 'Back', departments_path %> 
-
 <%= form_with(model: @department, local: true) do |form| %>
   <% if @department.errors.any? %>
     <div id="error_explanation">
@@ -27,4 +21,4 @@
   </div>
 <% end %>
 
-<%= link_to '戻る', admin_departments_path %>
+<%= link_to '戻る', departments_path %>
