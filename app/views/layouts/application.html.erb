@@ -10,6 +10,28 @@
   </head>
 
   <body>
+     <% if current_user.try(:admin) %>
+      <%= link_to "投稿管理", admin_posts_path %>
+      <%= link_to "ユーザー管理", admin_users_path %>
+      <%= link_to "部門管理", admin_departments_path %>
+      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+    <% elsif user_signed_in? %>
+      <%= link_to "投稿する", new_post_path %>
+      <%= link_to "投稿一覧", posts_path %>
+      <%= link_to "ユーザー一覧", users_path %>
+      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+    <% else %>
+      <%= link_to "ゲストログイン", homes_guest_sign_in_path, method: :post %>
+      <%= link_to "ゲスト管理者ログイン", homes_guest_admin_sign_in_path, method: :post %>
+    <% end %>
+
+    <% if notice %>
+      <p class="alert alert-notice"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert alert-error"><%= alert %></p>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>

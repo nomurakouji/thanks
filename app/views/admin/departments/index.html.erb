@@ -1,0 +1,23 @@
+
+<table>
+  <thead>
+    <tr>
+      <th>部門ID</th>    
+      <th>部門</th>    
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @departments.each do |department| %>
+      <tr>
+        <td><%= department.id %></td>
+        <td><%= department.name %></td>
+        <td><%= link_to 'Edit', edit_admin_department_path(department.id) %></td> 
+        <td><%= link_to 'Destroy', admin_department_path(department.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to '部門作成',  new_admin_department_path %>
+<%= link_to "管理画面に戻る", dashboard_path %>
