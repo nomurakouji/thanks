@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   root 'posts#index'
   namespace :admin do
-    resources :users
     resources :posts
     resources :departments
+    resources :users 
   end
   get :dashboard, to: 'posts#dashboard'
   devise_for :users

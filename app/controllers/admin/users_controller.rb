@@ -22,8 +22,12 @@ class Admin::UsersController < ApplicationController
   end
   
   def index
-    @users = User.all
-    @departments = Department.all
+    @q = User.ransack(params[:q])
+    @users = @q.result(distinct: true)
+    # @users = User.all
+    @d = User.ransack(params[:q])
+    @deparmetn = @d.result(distinct: true)
+    
   end
   
   def edit
@@ -51,6 +55,8 @@ class Admin::UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+
   
   private
   def set_post
@@ -64,4 +70,6 @@ class Admin::UsersController < ApplicationController
   def admin_user
     redirect_to root_path unless current_user.admin?
   end
+
+
 end
