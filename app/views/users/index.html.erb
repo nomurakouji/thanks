@@ -1,10 +1,10 @@
 
 <table>
   <tr>
-    <th>ID</th>
-    <th>部門</th>
-    <th>氏名</th>
-    <th>email</th>
+    <th><%= sort_link(@q, :id, "ユーザーID") %></th>
+    <th><%= sort_link(@d, :name, "部門名") %></th>
+    <th><%= sort_link(@q, :name, "ユーザー名") %></th>
+    <th><%= sort_link(@q, :email, "email") %></th>
   </tr>
   <tbody>
     <% @users.each do |user| %>

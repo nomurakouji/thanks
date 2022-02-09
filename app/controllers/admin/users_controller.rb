@@ -24,7 +24,6 @@ class Admin::UsersController < ApplicationController
   def index
     @q = User.ransack(params[:q])
     @users = @q.result(distinct: true)
-    # @users = User.all
     @d = User.ransack(params[:q])
     @deparmetn = @d.result(distinct: true)
     

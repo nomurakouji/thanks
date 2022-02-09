@@ -1,8 +1,10 @@
 class UsersController < ApplicationController
   before_action :set_post, only: %i[ show edit update destroy ]
   def index
-    @users = User.all
-    @departments = Department.all
+    @q = User.ransack(params[:q])
+    @users = @q.result(distinct: true)
+    @d = User.ransack(params[:q])
+    @deparmetn = @d.result(distinct: true)
   end
 
   def edit
