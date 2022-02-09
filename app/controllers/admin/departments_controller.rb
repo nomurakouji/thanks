@@ -28,6 +28,18 @@ class Admin::DepartmentsController < ApplicationController
   def edit
   end
 
+  def update
+    respond_to do |format|
+      if @department.update(department_params)
+        format.html { redirect_to admin_departments_path(@department), notice: "department was successfully updated." }
+        format.json { render :show, status: :ok, location: @department }
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+        format.json { render json: @department.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   def destroy
     @department.destroy
 

@@ -13,16 +13,15 @@ class Admin::UsersController < ApplicationController
   end
   
   def update
-    @user = User.find(params[:id])
-      respond_to do |format|
-        if @user.save
-          format.html { redirect_to admin_users_path, notice: "user was successfully created." }
-          format.json { render :show, status: :created, location: @user }
-        else
-          format.html { render :new, status: :unprocessable_entity }
-          format.json { render json: @user.errors, status: :unprocessable_entity }
-        end
+    respond_to do |format|
+      if @user.update(user_params)
+        format.html { redirect_to admin_users_path(@user), notice: "user was successfully updated." }
+        format.json { render :show, status: :ok, location: @user }
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
       end
+    end
   end
     
   def destroy

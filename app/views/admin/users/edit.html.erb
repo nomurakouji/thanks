@@ -1,4 +1,4 @@
-<%= form_with(model: @user, local: true) do |f| %>
+<%= form_with(model: @user, url: admin_user_path, local: true) do |f| %>
   <div>
     <h5>ID</h5>
     <%= @user.id %>
