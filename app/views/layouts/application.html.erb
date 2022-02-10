@@ -19,6 +19,7 @@
       <%= link_to "投稿する", new_post_path %>
       <%= link_to "投稿一覧", posts_path %>
       <%= link_to "ユーザー一覧", users_path %>
+      <%= link_to '通知', notifications_path %>
       <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
     <% else %>
       <%= link_to "ゲストログイン", homes_guest_sign_in_path, method: :post %>

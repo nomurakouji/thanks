@@ -1,0 +1,14 @@
+<div>
+  <h4 class="sub-title">通知</h4>
+  <% if @notifications.exists? %>
+    <div class="users-index">
+      <%# これはeachと同義。部分パーシャル %>
+      <%= render @notifications %>
+    <%# <% @notifications.each do |notification| %> 
+    <%# <%= render partial: 'notification', locals: {notification: notification} %> 
+    <%# <% end %> 
+    </div>
+  <% else %>
+    <p>通知はありません</p>
+  <% end %>
+</div>

@@ -8,6 +8,8 @@ class LikesController < ApplicationController
 
   def destroy
     Like.find_by(user_id: current_user.id, post_id: params[:post_id]).destroy
+    # Notificationの該当のIDを探して削除する。
+    # post_id = 100 解除 => post_idが引っ張れる。
     redirect_to posts_path
   end
 
