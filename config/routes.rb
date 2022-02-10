@@ -14,6 +14,6 @@ Rails.application.routes.draw do
   # これだと動かない
   #resources :likes, :only => [:create, :destroy]
   post 'like/:post_id' => 'likes#create', as: 'create_like'
-  delete 'like/:id' => 'likes#destroy', as: 'destroy_like'
+  delete 'like/:post_id' => 'likes#destroy', as: 'destroy_like'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
