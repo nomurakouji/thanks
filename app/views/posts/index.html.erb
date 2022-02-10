@@ -24,6 +24,11 @@
         <td><%= User.find(post.receiver_id).name %></td>    
         <td><img src = <%= User.find(post.receiver_id).image.url %> class = "icon_image"></td>
         <td><%= post.comment %></td>
+        <% if current_user.liked_by?(post.id) %>
+          <td><%= link_to 'いいねを外す', destroy_like_path(post), method: :delete %> <%= post.likes.count %></td>
+        <% else %>
+          <td><%= link_to 'いいね', create_like_path(post), method: :post %> <%= post.likes.count %></td>
+        <% end %>
         <td><%= link_to 'Show', post %></td>
         <% if current_user.admin == true  || ( current_user.id == post.user_id )%>
           <td><%= link_to 'Edit', edit_post_path(post) %></td>
