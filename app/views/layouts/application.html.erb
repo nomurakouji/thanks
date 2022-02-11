@@ -7,6 +7,9 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%# fontawesomeの使用 %>
+    <link href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/bb59f7e075.js" crossorigin="anonymous"></script>
    
   </head>
 
@@ -21,9 +24,22 @@
       <%= link_to "投稿する", new_post_path %>
       <%= link_to "投稿一覧", posts_path %>
       <%= link_to "ユーザー一覧", users_path %>
-      <%= link_to '通知', notifications_path %>
       <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-      <%= "ログイン中:#{current_user.name}" %>
+      <%="ログイン中:#{current_user.name}" %>
+
+      <% if user_signed_in? %>
+        <% @notifications = current_user.passive_notifications.where(checked: false) %>
+          <% if @notifications.any? %>
+              <%= link_to notifications_path do %>
+                <span><i class="fa-solid fa-heart fa-2x" style="color: deeppink;"></i></span>
+              <% end %>
+          <% else %>
+              <%= link_to notifications_path do %>
+                <span><i class="fa-regular fa-heart fa-2x" style="color: lightpink;"></i></span>
+              <% end %>
+          <% end %>
+      <% end %>
+
     <% else %>
       <%= link_to "ゲストログイン", homes_guest_sign_in_path, method: :post %>
       <%= link_to "ゲスト管理者ログイン", homes_guest_admin_sign_in_path, method: :post %>
