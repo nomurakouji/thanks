@@ -7,6 +7,7 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+   
   </head>
 
   <body>
@@ -15,12 +16,14 @@
       <%= link_to "ユーザー管理", admin_users_path %>
       <%= link_to "部門管理", admin_departments_path %>
       <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+      <%= "ログイン中:#{current_user.name}" %>
     <% elsif user_signed_in? %>
       <%= link_to "投稿する", new_post_path %>
       <%= link_to "投稿一覧", posts_path %>
       <%= link_to "ユーザー一覧", users_path %>
       <%= link_to '通知', notifications_path %>
       <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+      <%= "ログイン中:#{current_user.name}" %>
     <% else %>
       <%= link_to "ゲストログイン", homes_guest_sign_in_path, method: :post %>
       <%= link_to "ゲスト管理者ログイン", homes_guest_admin_sign_in_path, method: :post %>
