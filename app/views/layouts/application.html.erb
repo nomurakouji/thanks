@@ -27,15 +27,21 @@
       <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
       <%="ログイン中:#{current_user.name}" %>
 
+    <%# いいねの既読の有無に応じて、アイコンの表示を変更する。一連のロジック %>
       <% if user_signed_in? %>
+      <%# ユーザーがログインしていたらいいねの既読有無を確認 %>
         <% @notifications = current_user.passive_notifications.where(checked: false) %>
+          <%# checke: false = 未読があった場合 %>
           <% if @notifications.any? %>
+              <%# fontawesomeにリンクを貼る %>
               <%= link_to notifications_path do %>
-                <span><i class="fa-solid fa-heart fa-2x" style="color: deeppink;"></i></span>
+                <%# fontawesomeでアイコンを表示 %>
+                <span><i class="fa-solid fa-lightbulb fa-2x" style="color: gold;"></i></span>
               <% end %>
+          <%# 既読済みの場合 %>
           <% else %>
               <%= link_to notifications_path do %>
-                <span><i class="fa-regular fa-heart fa-2x" style="color: lightpink;"></i></span>
+                <span><i class="fa-regular fa-lightbulb fa-2x" style="color: khaki;"></i></span>
               <% end %>
           <% end %>
       <% end %>

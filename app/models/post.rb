@@ -14,10 +14,10 @@ class Post < ApplicationRecord
       visited_id: user_id,
       action: "Like"
     )
-    ##### 自分の投稿に対するいいねの場合は、通知済みとする
-    # if notification.visiter_id == notification.visited_id
-    #   notification.checked = true
-    # end
+    # 自分の投稿に対するいいねの場合は、通知済みとする
+    if notification.visiter_id == notification.visited_id
+      notification.checked = true
+    end
 
     # norificationの値が有効であればnotification変数の値をsave
     notification.save if notification.valid?

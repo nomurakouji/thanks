@@ -1,12 +1,4 @@
 module NotificationsHelper
-  # def unchecked_notifications
-    
-  #   if user_signed_in?
-  #     @notifications = current_user.passive_notifications.where(checked: false)
-  #     binding.irb
-  #   end
-  # end
-
   def notification_form(notification)
 #   @comment=nil
   #visiter = link_to notification.visiter.name, notification.visiter, style:"font-weight: bold;"
@@ -15,7 +7,7 @@ module NotificationsHelper
     # when "follow" then
     #   "#{visiter}があなたをフォローしました"
       when "like" then
-      "#{visiter}が#{your_post}にいいね！しました"
+      "#{visiter}が#{your_post}にいいね!しました"
     # when "comment" then
     #   @comment=Comment.find_by(id:notification.comment_id)&.content
     #   "#{visiter}が#{your_post}にコメントしました"
