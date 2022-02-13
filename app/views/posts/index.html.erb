@@ -34,10 +34,6 @@
             <%= post.likes.count %>
             <% end %>
        </td>
-
- 
-
-          
         <% end %>
         <td><%= link_to 'Show', post %></td>
         <% if current_user.admin == true  || ( current_user.id == post.user_id )%>

@@ -15,4 +15,9 @@ class User < ApplicationRecord
   # active_notificataions => 自分からの通知 , passive_notifications => 相手からの通知
   has_many :active_notifications, class_name: 'Notification', foreign_key: 'visiter_id', dependent: :destroy
   has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy
+  #active_relationships => フォローする人 , passive_relationships => フォローされた人
+  has_many :active_relationships, class_name: 'Relationship', foreign_key: 'follower_id',  dependent: :destroy
+  has_many :following, through: :active_relationships, source: :followed
+  has_many :passive_relationships, class_name: 'Relationship', foreign_key: 'followed_id', dependent: :destroy
+  has_many :followers, through: :passive_relationships, source: :follower
 end
