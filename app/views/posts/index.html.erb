@@ -1,9 +1,4 @@
-<%# current_userがnilの時にエラーを出さずにadmin権限の確認 %>
-<% if current_user.try(:admin?) %>
-  <h1>Posts_admin </h1>
-<% else %>
-  <h1>Posts</h1>
-<% end %>
+<h1>Thanks!</h1>
 
 <table>
   <thead>
@@ -12,8 +7,8 @@
       <th>From</th>    
       <th>To</th>
       <th>Image</th>
-      <th>Comment</th>
-      <th>Good</th>
+      <th>Thanks!</th>
+      <th>いいね</th>
     </tr>
   </thead>
 
@@ -26,10 +21,23 @@
         <td><img src = <%= User.find(post.receiver_id).image.url %> class = "icon_image"></td>
         <td><%= post.comment %></td>
         <% if current_user.liked_by?(post.id) %>
-          <td><%= link_to 'いいねを外す', destroy_like_path(post), method: :delete %> <%= post.likes.count %></td>
+          <td><%= link_to destroy_like_path(post), method: :delete do %>
             <%# fontawesomeでアイコンを表示 %>
+            <span><i class="fa-solid fa-heart fa-2x" style="color: deeppink;"></i></span>
+            <%= post.likes.count %>
+            <% end %>
+          </td>
         <% else %>
-          <td><%= link_to 'いいね', create_like_path(post), method: :post %><%= post.likes.count %></td> 
+          <td><%= link_to create_like_path(post), method: :post do %>
+            <%# fontawesomeでアイコンを表示 %>
+            <span><i class="fa-regular fa-heart fa-2x" style="color: lightpink;"></i></span>
+            <%= post.likes.count %>
+            <% end %>
+       </td>
+
+ 
+
+          
         <% end %>
         <td><%= link_to 'Show', post %></td>
         <% if current_user.admin == true  || ( current_user.id == post.user_id )%>
