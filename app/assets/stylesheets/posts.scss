@@ -1,3 +1,66 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+// 画像の大きさ
+
+.practice_image {
+    width: 100%;
+    weight: 100%;
+}
+
+.content {
+    max-width: 980px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.card-list {
+    max-width: 220px;
+ 
+}
+
+
+.cardlistTitle {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    margin: 30px 0;
+}
+.card-listText {
+ line-height: 1.6;
+}
+
+
+.icon_image {
+    width: 70%;
+    weight: 70%;
+    object-fit:cover;
+}
+
+// .item {
+//     width: 100%;
+//   }
+//   .item-img {
+//     padding: 0;
+//   }
+//   .item-body {
+//     padding: 0;
+//   }
+//   .item-title {
+//     margin: 0 0 8px;
+//     font-size: 15px;
+//     font-weight: 700;
+//     color: black;
+//   }
+//   .item-body p {
+//     font-size: 16px;
+//     font-weight: 400;
+//     color: #333;
+//   }

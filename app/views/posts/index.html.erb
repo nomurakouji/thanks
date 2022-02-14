@@ -1,48 +1,48 @@
+<%= stylesheet_link_tag "posts", :media => "all" %>
+<%# <% link rel="stylesheet" type="text/css" href="posts.scss" %> 
+
 <h1>Thanks!</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Date</th> 
-      <th>From</th>    
-      <th>To</th>
-      <th>Image</th>
-      <th>Thanks!</th>
-      <th>いいね</th>
-    </tr>
-  </thead>
-
-  <tbody>
+<div class = "content">
+  <div class = "card-wrap">
     <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.created_at.strftime('%Y/%m/%d/%R') %></td>
-        <td><%= post.user.name %></td>
-        <td><%= User.find(post.receiver_id).name %></td>    
-        <td><img src = <%= User.find(post.receiver_id).image.url %> class = "icon_image"></td>
-        <td><%= post.comment %></td>
-        <% if current_user.liked_by?(post.id) %>
-          <td><%= link_to destroy_like_path(post), method: :delete do %>
-            <%# fontawesomeでアイコンを表示 %>
-            <span><i class="fa-solid fa-heart fa-2x" style="color: deeppink;"></i></span>
-            <%= post.likes.count %>
-            <% end %>
-          </td>
-        <% else %>
-          <td><%= link_to create_like_path(post), method: :post do %>
-            <%# fontawesomeでアイコンを表示 %>
-            <span><i class="fa-regular fa-heart fa-2x" style="color: lightpink;"></i></span>
-            <%= post.likes.count %>
-            <% end %>
-       </td>
-        <% end %>
-        <td><%= link_to 'Show', post %></td>
-        <% if current_user.admin == true  || ( current_user.id == post.user_id )%>
-          <td><%= link_to 'Edit', edit_post_path(post) %></td>
-          <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-      </tr>
+      <div class = "card-list">
+        <p class = "cardlistImage"><%= link_to post_path(post.id) do %>
+          <img src = <%= User.find(post.receiver_id).image.url %> class = "icon_image"><a>
+          <% end %>
+          <br>
+          <%="日時: #{post.created_at.strftime('%Y/%m/%d/%R')}" %>
+          <br>
+          <%= "投稿者:#{post.user.name}" %>
+          <br>
+          <%= "宛先:#{User.find(post.receiver_id).name}" %> 
+          <br>
+          <%= "メッセージ:#{post.comment}" %>
+          <br>
+          <% if current_user.liked_by?(post.id) %>
+            <%= link_to destroy_like_path(post), method: :delete do %>
+              <%# fontawesomeでアイコンを表示 %>
+              <span><i class="fa-solid fa-heart fa-2x" style="color: deeppink;"></i></span>
+              <%= post.likes.count %>
+              <% end %>
+          <% else %>
+            <%= link_to create_like_path(post), method: :post do %>
+              <%# fontawesomeでアイコンを表示 %>
+              <span><i class="fa-regular fa-heart fa-2x" style="color: lightpink;"></i></span>
+              <%= post.likes.count %>
+              <% end %>
+          <% end %>
+      </div>
     <% end %>
-  </tbody>
-</table>
+  </div>
+</div>
 
 
+
+<%# <div class="item">
+	<div class="item-img"><img src="https://haniwaman.com/cms/wp-content/uploads/2018/10/dummy.jpg" class = "sample" alt=""></div>
+	<div class="item-body">
+		<div class="item-title">見出し見出し見出し見出し</div>
+		<p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+	</div>
+</div> %>
