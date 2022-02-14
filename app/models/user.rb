@@ -31,6 +31,6 @@ class User < ApplicationRecord
   end
   # 現在のユーザーがフォローしているか確認(その場合はtrueを返す)
   def following?(other_user)
-    following.include?(other_user)
+    active_relationships.find_by(followed_id: other_user.id)
   end
 end

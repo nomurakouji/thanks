@@ -4,8 +4,8 @@ class UsersController < ApplicationController
   def index
     @q = User.ransack(params[:q])
     @users = @q.result(distinct: true)
-    @d = User.ransack(params[:q])
-    @deparmetn = @d.result(distinct: true)
+    # @d = User.ransack(params[:q])
+    # @deparmetn = @d.result(distinct: true)
   end
 
   def edit
