@@ -2,21 +2,26 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+.slick-slide img {
+	width: 100%;
+}
+
+
 // 画像の大きさ
 
 .practice_image {
-    width: 100%;
-    weight: 100%;
+    width: 20%;
+    weight: 20%;
 }
 
 .content {
-    max-width: 980px;
+    // max-width: 980px;
     margin-left: auto;
     margin-right: auto;
 }
 
 .card-wrap {
-    display: flex;
+    // display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
 }
@@ -25,7 +30,9 @@
     max-width: 220px;
  
 }
-
+.slider {
+    background-color: aliceblue;
+}
 
 .cardlistTitle {
     font-size: 20px;
@@ -37,11 +44,27 @@
  line-height: 1.6;
 }
 
+.cardlistImage {
+    width: 100%;
+    weight: 100%;
+}
 
 .icon_image {
-    width: 70%;
-    weight: 70%;
+    width: 30%;
+    weight: 30%;
     object-fit:cover;
+}
+
+.slick-next,.slick-prev {
+    z-index: 1;
+}
+
+.slick-prev {
+    left: 10px;
+}
+
+.slick-next {
+    right: 10px;
 }
 
 // .item {
