@@ -1,15 +1,31 @@
 <p id="notice"><%= notice %></p>
 
+<p>
+  <strong>日時:</strong>
+  <%= @post.created_at.strftime('%Y/%m/%d/%R') %>
+</p>
 
 <p>
-  <strong>Comment:</strong>
+  <strong>投稿者:</strong>
+  <%= @post.user.name %>
+</p>
+
+<p>
+  <strong>宛先:</strong>
+  <%= User.find(@post.receiver_id).name %>
+</p>
+
+<p>
+  <strong>写真:</strong>
+  <img src = <%= User.find(@post.receiver_id).image.url%> class = "icon_image">  
+</p>
+
+<p>
+  <strong>メッセージ:</strong>
   <%= @post.comment %>
 </p>
 
-<p>
-  <strong>Image:</strong>
-  <img src = <%= User.find(@post.receiver_id).image.url%> class = "icon_image">  
-</p>
+
 
  <% if current_user.admin == true  || ( current_user.id == @post.user_id )%>
   <%= link_to 'Edit', edit_post_path(@post) %>

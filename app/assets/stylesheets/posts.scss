@@ -2,14 +2,22 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+
+// 題名の文字
+.title {
+    margin-left: 5px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
 .slick-slide img {
 	width: 100%;
 }
 
 .content {
     // max-height: 500px;
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 .card-wrap {
