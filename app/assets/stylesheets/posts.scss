@@ -31,6 +31,14 @@
     visibility: hidden;
 }
 
+.slider img {
+    object-fit:cover;
+    // 写真の高さを指定
+    height:calc(15vh);
+    margin: 0 auto;
+    text-align:center;
+}
+
 .slider.slick-initialized {
     visibility: visible;
 }
@@ -46,15 +54,21 @@
 }
 
 .cardlistImage {
-    width: 100%;
-    weight: 100%;
+    // width: 100%;
+    // weight: 100%;
+    object-fit: cover;
 }
 
 .icon_image {
-    width: 100%;
-    weight: 100%;
+    // width: 100%;
+    // weight: 100%;
     object-fit:cover;
 }
+
+// 写真だけを指定
+// .image-wrap {
+//     object-fit: cover;
+// }
 
 // 矢印を最前列へ移動
 .slick-next,.slick-prev {
@@ -64,15 +78,13 @@
 .slick-prev {
     left: 10px;
 }
-
 .slick-next {
     right: 30px;
 }
-
+// 矢印の大きさ、透過性
 .slick-prev:before, .slick-next:before {
     font-family: 'slick';
     font-size: 50px;
-    // 透過性
     opacity: .25; 
     color: black;
     -webkit-font-smoothing: antialiased;
