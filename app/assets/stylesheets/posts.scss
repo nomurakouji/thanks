@@ -6,14 +6,6 @@
 	width: 100%;
 }
 
-
-// 画像の大きさ
-
-.practice_image {
-    width: 20%;
-    weight: 20%;
-}
-
 .content {
     // max-width: 980px;
     margin-left: auto;
@@ -26,12 +18,13 @@
     justify-content: space-between;
 }
 
-.card-list {
-    max-width: 220px;
- 
-}
 .slider {
     background-color: aliceblue;
+    visibility: hidden;
+}
+
+.slider.slick-initialized {
+    visibility: visible;
 }
 
 .cardlistTitle {
@@ -55,17 +48,30 @@
     object-fit:cover;
 }
 
+// 矢印を最前列へ移動
 .slick-next,.slick-prev {
     z-index: 1;
 }
-
+// 矢印の位置(ここでは内側へ配置）
 .slick-prev {
     left: 10px;
 }
 
 .slick-next {
-    right: 10px;
+    right: 30px;
 }
+
+.slick-prev:before, .slick-next:before {
+    font-family: 'slick';
+    font-size: 50px;
+    // 透過性
+    opacity: .25; 
+    color: black;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
 
 // .item {
 //     width: 100%;

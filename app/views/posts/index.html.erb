@@ -2,44 +2,14 @@
 <%# <% link rel="stylesheet" type="text/css" href="posts.scss" %> 
 
 <h1>Thanks!</h1>
-
 <br>
 <br>
 
-
-
-
- <h3>新着</h3>
-  <div class = slider>
-    <div>
-      <%= image_tag "gameroom-scorpio2.jpeg", class: "practice_image" %>
-    </div>
-    <div>
-      <%= image_tag "onisanGFVL1361.jpg.webp", class: "practice_image" %>
-    </div>
-    <div>
-      <%= image_tag "gameroom-scorpio2.jpeg", class: "practice_image" %>
-    </div>
-    <div>
-      <%= image_tag "gameroom-scorpio2.jpeg", class: "practice_image" %>
-    </div>
-    <div>
-      <%= image_tag "gameroom-scorpio2.jpeg", class: "practice_image" %>
-    </div>
-  </div>
-
-
-
-
-
-
-
-
+<h3>作成順</h3>
 <div class = "content">
   <div class = "card-wrap">
         <div class = "slider">
     <% @posts.each do |post| %>
-      <%# <div class = "card-list"> %>
           <div>
             <p class = "cardlistImage"><%= link_to post_path(post.id) do %>
               <img src = <%= User.find(post.receiver_id).image.url %> class = "icon_image"><a>
@@ -68,7 +38,45 @@
           </div>
               <% end %>
         </div>
-      <%# </div> %>
     <% end %>
+  </div>
+</div>
+
+
+
+<h3>新着順</h3>
+<div class = "content">
+  <div class = "card-wrap">
+        <div class = "slider">
+    <% @newcomings.each do |n| %>
+          <div>
+            <p class = "cardlistImage"><%= link_to post_path(n.id) do %>
+              <img src = <%= User.find(n.receiver_id).image.url %> class = "icon_image"><a>
+            <% end %>
+              <br>
+              <%="日時: #{n.created_at.strftime('%Y/%m/%d/%R')}" %>
+              <br>
+              <%= "投稿者:#{n.user.name}" %>
+              <br>
+              <%= "宛先:#{User.find(n.receiver_id).name}" %> 
+              <br>
+              <%= "メッセージ:#{n.comment}" %>
+              <br>
+              <% if current_user.liked_by?(n.id) %>
+                <%= link_to destroy_like_path(n), method: :delete do %>
+                  <%# fontawesomeでアイコンを表示 %>
+                  <span><i class="fa-solid fa-heart fa-2x" style="color: deeppink;"></i></span>
+                  <%= n.likes.count %>
+                <% end %>
+              <% else %>
+                <%= link_to create_like_path(n), method: :post do %>
+                  <%# fontawesomeでアイコンを表示 %>
+                  <span><i class="fa-regular fa-heart fa-2x" style="color: lightpink;"></i></span>
+                  <%= n.likes.count %>
+                <% end %>
+              <% end %>
+          </div>
+    <% end %>
+    </div>
   </div>
 </div>
