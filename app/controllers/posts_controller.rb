@@ -6,6 +6,8 @@ class PostsController < ApplicationController
   def index
     @posts = Post.all
     @newcomings = Post.all.order(created_at: :desc) 
+    @likes_rankings = Post.find(Like.group(:post_id).order('count(post_id) desc').pluck(:post_id))
+    # @follows = Post.find(current_user.followed.group(:followed_id).order('count(post_id) desc').pluck(:followed_id))
 
   end
 
