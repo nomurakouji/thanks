@@ -19,6 +19,8 @@
         <th><%= sort_link(@d, :department_id, "部門名") %></th>
         <th><%= sort_link(@q, :name, "ユーザー名") %></th>
         <th><%= sort_link(@q, :email, "email") %></th>
+        <th></th>
+        <th></th>
       </tr>
       <tbody>
         <% @users.each do |user| %>
