@@ -4,36 +4,36 @@
   <div class = "box-inner">
 
     <%= form_with(model: @user, url: admin_user_path, local: true) do |f| %>
-      <div>
-        <h5>ID</h5>
-        <%= @user.id %>
-      </div>
+      <p>
+        ユーザーID:<%= @user.id %>
+      </p>
       
     <div class="field">
-        <%= f.label :department %>
+        <%= f.label :部門 %>
         <%= f.collection_select :department_id, Department.all, :id, :name %>
       </div>
 
       <div>
-        <%= f.label :name %><br>
+        <%= f.label :名前 %>
         <%= f.text_field :name %>
       </div>
       
       <div>
-        <%= f.label :email %><br>
-        <%= f.text_area :email %>
+        <%= f.label :Eメール %>
+        <%= f.text_field :email %>
       </div>
 
       <div class="field">
         <%= f.label :image %><br/>
         <img src = <%= @user.image.url %> class = "icon_image">
         <br>
+        <br>
         <%= f.file_field :image, class: "image" %>
       </div>
-      
+    <br>
       <div><button class="btn btn-outline-primary">編集する</button></div>
     <% end %>
-
+    <br>
     <%= link_to "戻る", admin_users_path %>
   </div>
 </div>

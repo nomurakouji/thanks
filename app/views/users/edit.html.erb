@@ -5,8 +5,7 @@
 
     <%= form_with(model: @user, local: true) do |f| %>
       <p>
-        <strong>ユーザーID:</strong>
-        <%= @user.id %>
+        ユーザーID:<%= @user.id %>
       </p>
         
       <div class="field">
@@ -15,17 +14,17 @@
       </div>
 
       <div class="field">
-          <%= f.label :名前 %><br>
+          <%= f.label :名前 %>
           <%= f.text_field :name %>
       </div>
         
         <div>
-          <%= f.label :Eメール %><br>
+          <%= f.label :Eメール %>
           <%= f.text_area :email %>
         </div>
 
         <div class="field">
-          <%= f.label :画像 %><br/>
+          <%= f.label :画像 %>
           <img src = <%= @user.image.url %> class = "icon_image">
           <br>
           <br>
