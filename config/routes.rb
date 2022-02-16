@@ -12,7 +12,9 @@ Rails.application.routes.draw do
   end
   # ダッシュボード画面
   get :dashboard, to: 'posts#dashboard'
-  #　ゲスト一般、ゲスト管理者の作成
+  # 使用説明画面
+  get :instructions, to: 'posts#instructions'
+  # ゲスト一般、ゲスト管理者の作成
   post '/homes/guest_sign_in', to: 'homes#new_guest'
   post '/homes/guest_admin_sign_in', to: 'homes#new_guestadmin'
   resources :posts

@@ -20,16 +20,21 @@
     <div class = "header">
 
       <% if current_user.try(:admin) %>
+        <%= link_to "投稿する", new_post_path %>
         <%= link_to "投稿管理", admin_posts_path %>
         <%= link_to "ユーザー管理", admin_users_path %>
         <%= link_to "部門管理", admin_departments_path %>
         <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+        <%= link_to "使用方法", instructions_path %>
+    <div class = "header-right">
         <%= "ログイン中:#{current_user.name}" %>
+    </div>
       <% elsif user_signed_in? %>
         <%= link_to "投稿する", new_post_path %>
         <%= link_to "投稿一覧", posts_path %>
         <%= link_to "ユーザー一覧", users_path %>
         <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+        <%= link_to "使用方法", instructions_path %>
     <div class = "header-right">
         <%="ログイン中:#{current_user.name}" %>
       <%# いいねの既読の有無に応じて、アイコンの表示を変更する。一連のロジック %>
