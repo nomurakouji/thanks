@@ -1,34 +1,40 @@
-<%= form_with(model: @user, local: true) do |f| %>
-  <div>
-    <h5>ID</h5>
-    <%= @user.id %>
-  </div>
-  
- <div class="field">
-    <%= f.label :department %>
-    <%= f.collection_select :department_id, Department.all, :id, :name %>
-  </div>
+<%= stylesheet_link_tag 'sessions', media: 'all', 'data-turbolinks-track': 'reload' %>
 
-  <div>
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  
-  <div>
-    <%= f.label :email %><br>
-    <%= f.text_area :email %>
-  </div>
+<div class = "box">
+  <div class = "box-inner">
 
-  <div class="field">
-    <%= f.label :image %><br/>
-    <img src = <%= @user.image.url %> class = "icon_image">
-    <br>
-    <%= f.file_field :image, class: "image" %>
-  </div>
-  
-  <div><%= f.submit "編集する" %></div>
-<% end %>
+    <%= form_with(model: @user, local: true) do |f| %>
+      <p>
+        <strong>ユーザーID:</strong>
+        <%= @user.id %>
+      </p>
+        
+      <div class="field">
+          <%= f.label :部門 %>
+          <%= f.collection_select :department_id, Department.all, :id, :name %>
+      </div>
 
-<%= link_to :back do %>
-  <button>戻る</button>
-<% end %>
+      <div class="field">
+          <%= f.label :名前 %><br>
+          <%= f.text_field :name %>
+      </div>
+        
+        <div>
+          <%= f.label :Eメール %><br>
+          <%= f.text_area :email %>
+        </div>
+
+        <div class="field">
+          <%= f.label :画像 %><br/>
+          <img src = <%= @user.image.url %> class = "icon_image">
+          <br>
+          <br>
+          <%= f.file_field :image, class: "image" %>
+        </div>
+      <br>
+        <div><%= f.submit "編集する" %></div>
+    <% end %>
+
+    <%= link_to '戻る', users_path %>
+  </div>
+</div>

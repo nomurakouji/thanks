@@ -17,12 +17,12 @@
       <% end %>
 
       <div class="field">
-        <%= form.label :From %>
+        <%= form.label :投稿者 %>
         <%= @post_name %>
       </div>
 
       <div class="field">
-        <%= form.label :To %>
+        <%= form.label :宛先 %>
         <%= form.collection_select :receiver_id, User.all, :id, :name, include_blank: "選択して下さい" %>
       </div>
 
