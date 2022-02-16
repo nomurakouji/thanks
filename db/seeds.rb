@@ -7,14 +7,14 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-1.times do |n| 
+5.times do |n| 
     name = Faker::Job.field
     Department.create!(name: name,
                       )
 end
 
 
-1.times do |n| 
+5.times do |n| 
     department_id = Department.last.id
     name = Faker::Name.name
     email = Faker::Internet.email

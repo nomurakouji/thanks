@@ -35,6 +35,7 @@ h2 {
     justify-content: space-between;
 }
 
+// slick
 .slider {
     background-color: aliceblue;
     visibility: hidden;
@@ -60,17 +61,6 @@ h2 {
 }
 .card-listText {
  line-height: 1.6;
-}
-
-// 文章の範囲
-.text-message {
-    max-height:calc(10vh);
-}
-
-// いいねの範囲
-.likes {
-    // position: relative;
-    // top: 30px;
 }
 
 .cardlistImage {
