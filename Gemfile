@@ -65,3 +65,4 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'ransack'
 gem "font-awesome-rails"
+gem 'faker'
