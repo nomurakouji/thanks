@@ -19,9 +19,7 @@
               <br>
               <%= "宛先:#{User.find(n.receiver_id).name}" %> 
               <br>
-                <div class = text-message>
                 <%= "メッセージ:#{n.comment}" %>
-                </div>
               <br>
                 <div class = likes>
                 <% if current_user.liked_by?(n.id) %>
