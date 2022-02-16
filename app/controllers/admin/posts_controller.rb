@@ -5,7 +5,12 @@ class Admin::PostsController < ApplicationController
   # GET /posts or /posts.json
   def index
     @posts = Post.all
-    # @aaa = User.find(receiver_id).name
+     # 新着順に表示
+     @newcomings = Post.all.order(created_at: :desc) 
+     # いいね数ランキング
+     @likes_rankings = Post.find(Like.group(:post_id).order('count(post_id) desc').pluck(:post_id))
+     # フォローしている順
+     @follows = Post.where(user_id: [*current_user.following_ids]).order(created_at: :desc)
   end
 
   # GET /posts/1 or /posts/1.json

@@ -11,8 +11,6 @@ class PostsController < ApplicationController
     @likes_rankings = Post.find(Like.group(:post_id).order('count(post_id) desc').pluck(:post_id))
     # フォローしている順
     @follows = Post.where(user_id: [*current_user.following_ids]).order(created_at: :desc)
-   
-    # @follows = Post.find(current_user.followed.group(:followed_id).order('count(post_id) desc').pluck(:followed_id))
 
   end
 
