@@ -4,6 +4,7 @@ class Post < ApplicationRecord
   has_many :like_users, through: :likes, source: :user
   has_many :notifications, dependent: :destroy
 
+
   def create_notification_by(current_user)
     # すでに「いいね」されているか検索（実際はデータベースから一致する条件のものを全て検索している）
     temp = Notification.where(["visiter_id = ? and visited_id = ? and post_id = ? and action = ? ", current_user.id, user_id, id, 'like'])

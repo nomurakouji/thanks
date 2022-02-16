@@ -20,4 +20,27 @@ $fa-font-path: '@fortawesome/fontawesome-free/webfonts';
  *= require_self
  */
 
+.header {
+  color: black;
+  padding: 1rem 0;
+  background-color: aliceblue;
+  text-align: left;
+}
+.header-right {
+  float: right;
+}
 
+
+// body {
+//     background-image:url("pexels-fauxels-3184291.jpg") ;
+//     background-position: 0% 0%;
+//     background-size:contain;
+//     background-repeat: no-repeat;
+//   }
+
+.footer {
+  color: black;
+  padding: 1rem 0;
+  background-color: aliceblue;
+  text-align: center;
+}

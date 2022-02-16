@@ -53,6 +53,17 @@
  line-height: 1.6;
 }
 
+// 文章の範囲
+.text-message {
+    max-height:calc(10vh);
+}
+
+// いいねの範囲
+.likes {
+    // position: relative;
+    // top: 30px;
+}
+
 .cardlistImage {
     // width: 100%;
     // weight: 100%;
@@ -64,11 +75,6 @@
     // weight: 100%;
     object-fit:cover;
 }
-
-// 写真だけを指定
-// .image-wrap {
-//     object-fit: cover;
-// }
 
 // 矢印を最前列へ移動
 .slick-next,.slick-prev {
@@ -90,26 +96,3 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
-
-
-
-// .item {
-//     width: 100%;
-//   }
-//   .item-img {
-//     padding: 0;
-//   }
-//   .item-body {
-//     padding: 0;
-//   }
-//   .item-title {
-//     margin: 0 0 8px;
-//     font-size: 15px;
-//     font-weight: 700;
-//     color: black;
-//   }
-//   .item-body p {
-//     font-size: 16px;
-//     font-weight: 400;
-//     color: #333;
-//   }

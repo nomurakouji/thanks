@@ -1,42 +1,49 @@
 <%= stylesheet_link_tag "posts", :media => "all" %>
-<%# <% link rel="stylesheet" type="text/css" href="posts.scss" %> 
 
 <h1>Thanks!</h1>
-<br>
-<br>
 
-<a class = "title" >新着順 </a> 
+<%# <img src = "app/views/posts/pexels-fauxels-3184291.jpg" >
+<img src = "/Users/nomurakouji/DIC/exam/thanks/app/views/posts/pexels-fauxels-3184291.jpg" > %>
+<%# <div id="blog-title-inner" style="background-image: url('app/views/posts/pexels-fauxels-3184291.jpg'); background-position: center -326px;"> %>
+<%# <img src = "pexels-fauxels-3184291.jpg"> %>
+
+<br>
+<br>
+<a class = "title" >新着順 </a> すべて見る
 
 <div class = "content">
   <div class = "card-wrap">
-        <div class = "slider">
+    <div class = "slider">
     <% @newcomings.each do |n| %>
           <div>
             <p class = "cardlistImage"><%= link_to post_path(n.id) do %>
               <img src = <%= User.find(n.receiver_id).image.url %> class = "icon_image"><a>
             <% end %>
-              <br>
               <%="日時: #{n.created_at.strftime('%Y/%m/%d/%R')}" %>
               <br>
               <%= "投稿者:#{n.user.name}" %>
               <br>
               <%= "宛先:#{User.find(n.receiver_id).name}" %> 
               <br>
-              <%= "メッセージ:#{n.comment}" %>
+                <div class = text-message>
+                <%= "メッセージ:#{n.comment}" %>
+                </div>
               <br>
-              <% if current_user.liked_by?(n.id) %>
-                <%= link_to destroy_like_path(n), method: :delete do %>
-                  <%# fontawesomeでアイコンを表示 %>
-                  <span><i class="fa-solid fa-heart fa-2x" style="color: deeppink;"></i></span>
-                  <%= n.likes.count %>
+                <div class = likes>
+                <% if current_user.liked_by?(n.id) %>
+                  <%= link_to destroy_like_path(n), method: :delete do %>
+                    <%# fontawesomeでアイコンを表示 %>
+                    <span><i class="fa-solid fa-heart fa-2x" style="color: deeppink;"></i></span>
+                    <%= n.likes.count %>
+                  <% end %>
+                <% else %>
+                  <%= link_to create_like_path(n), method: :post do %>
+                    <%# fontawesomeでアイコンを表示 %>
+                    <span><i class="fa-regular fa-heart fa-2x" style="color: lightpink;"></i></span>
+                    <%= n.likes.count %>
+                  <% end %>
                 <% end %>
-              <% else %>
-                <%= link_to create_like_path(n), method: :post do %>
-                  <%# fontawesomeでアイコンを表示 %>
-                  <span><i class="fa-regular fa-heart fa-2x" style="color: lightpink;"></i></span>
-                  <%= n.likes.count %>
-                <% end %>
-              <% end %>
+                </div>
           </div>
     <% end %>
     </div>
@@ -44,7 +51,7 @@
 </div>
 
 
-<a class = "title" >いいね数順 </a> 
+<a class = "title" >いいね数順 </a> すべて見る
 <div class = "content">
   <div class = "card-wrap">
         <div class = "slider">
@@ -82,17 +89,15 @@
 </div>
 
 
-<a class = "title" >フォローしている人 </a> 
+<a class = "title" >フォローしている人の投稿 </a> すべて見る
 <div class = "content">
   <div class = "card-wrap">
         <div class = "slider">
     <% @follows.each do |f| %>
           <div>
-          <%# <div class = "image-wrap"> %>
             <p class = "cardlistImage"><%= link_to post_path(f.id) do %>
               <img src = <%= User.find(f.receiver_id).image.url %> class = "icon_image"><a>
             <% end %>
-          <%# </div> %>
               <br>
               <%="日時: #{f.created_at.strftime('%Y/%m/%d/%R')}" %>
               <br>
