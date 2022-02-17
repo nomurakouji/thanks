@@ -7,11 +7,12 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-5.times do |n| 
-    name = Faker::Job.field
-    Department.create!(name: name,
-                      )
-end
+
+Department.create!(:name => "管理者")
+Department.create!(:name => "ゲストログイン")
+Department.create!(:name => "営業部")
+Department.create!(:name => "広報宣伝部")
+
 
 
 5.times do |n| 
