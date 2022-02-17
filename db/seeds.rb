@@ -17,14 +17,14 @@ User.create!(department_id: Department.third.id,
             name: 'arisa',
             email: 'arisa@jarisa.com',
             password: 'password',
-            image: open("./db/fixtures/pexels-los-muertos-crew-8446867.jpg")
+            image: open("#{Rails.root}/db/fixtures/pexels-los-muertos-crew-8446867.jpg")
             )
 
 User.create!(department_id: Department.third.id,
             name: 'john',
             email: 'john@john.com',
             password: 'password',
-            image: open("./db/fixtures/pexels-andrea-piacquadio-3760260.jpg")
+            image: open("#{Rails.root}/db/fixtures/pexels-andrea-piacquadio-3760260.jpg")
             )
 
 # User.create!(department_id: Department.third.id,
