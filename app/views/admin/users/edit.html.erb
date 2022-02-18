@@ -25,7 +25,7 @@
 
       <div class="field">
         <%= f.label :image %><br/>
-        <img src = <%= @user.image.url %> class = "icon_image">
+        <%= image_tag @user.image.url %>
         <br>
         <br>
         <%= f.file_field :image, class: "image" %>
