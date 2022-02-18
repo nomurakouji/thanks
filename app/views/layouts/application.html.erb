@@ -23,7 +23,7 @@
 
   <body>
     <div class = "header">
-
+    
       <% if current_user.try(:admin) %>
         <%= link_to "投稿する", new_post_path %>
         <%= link_to "投稿管理", admin_posts_path %>
