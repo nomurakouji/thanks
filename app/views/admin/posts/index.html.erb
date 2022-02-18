@@ -10,7 +10,7 @@
   <div class = "card-wrap">
     <div class = "slider">
     <% @newcomings.each do |n| %>
-          <div>
+      <div>
             <p class = "cardlistImage"><%= link_to admin_post_path(n.id) do %>
               <img src = <%= User.find(n.receiver_id).image.url %> class = "icon_image"><a>
             <% end %>
@@ -39,7 +39,7 @@
                   <% end %>
                 <% end %>
                 </div>
-          </div>
+      </div>
     <% end %>
     </div>
   </div>
