@@ -65,5 +65,10 @@ gem 'devise-i18n'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'ransack'
+# アイコン
 gem "font-awesome-rails"
+# seedファイル
 gem 'faker'
+# awsのs3
+gem 'fog-aws'
+gem 'dotenv-rails'
