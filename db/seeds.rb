@@ -13,6 +13,7 @@ Department.create!(:name => "社長室")
 Department.create!(:name => "広報宣伝部")
 Department.create!(:name => "営業部")
 
+
 User.create!(department_id: Department.third.id,
             name: 'arisa',
             email: 'arisa@jarisa.com',
