@@ -72,3 +72,4 @@ gem 'faker'
 # awsのs3
 gem 'fog-aws'
 gem 'dotenv-rails'
+gem "aws-sdk-s3", require: false
