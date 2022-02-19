@@ -18,6 +18,7 @@
           <th><%= sort_link(@q, :name, "ユーザー名") %></th>
           <th><%= sort_link(@q, :email, "email") %></th>
           <th>フォロー</th>
+          <th></th>
         </tr> 
       <tbody>
         <% @users.each do |user| %>
@@ -26,9 +27,11 @@
             <td><%= user.department.name %></td> 
             <td><%= user.name %></td>
             <td><%= user.email %></td>
-            <td><div id="follow_form_"><%= render 'follow_form', user: user %> </div></td>
+            <% unless  current_user.id == user.id  %>
+              <td><div id="follow_form_"><%= render 'follow_form', user: user %> </div></td>
+            <% end %>
             <% if current_user.admin == true  || ( current_user.id == user.id )%>
-               <td class = check_buttons><%= link_to "編集", edit_user_path(user), class: 'link-info'%></td>
+              <td class = check_buttons><%= button_to "編集", edit_user_path(user),method: :get ,class: 'btn btn-outline-info'%></td>
             <% end %>
           </tr>
         <% end %>

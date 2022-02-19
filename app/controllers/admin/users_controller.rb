@@ -25,7 +25,7 @@ class Admin::UsersController < ApplicationController
     @q = User.ransack(params[:q])
     @users = @q.result(distinct: true)
     @d = User.ransack(params[:q])
-    @deparmetn = @d.result(distinct: true)
+    @deparmemt = @d.result(distinct: true)
     
   end
   

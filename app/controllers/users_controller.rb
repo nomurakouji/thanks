@@ -5,7 +5,7 @@ class UsersController < ApplicationController
     @q = User.ransack(params[:q])
     @users = @q.result(distinct: true)
     # @d = User.ransack(params[:q])
-    # @deparmetn = @d.result(distinct: true)
+    # @deparment = @d.result(distinct: true)
   end
 
   def edit
@@ -16,20 +16,20 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    #@department = Department.find(params[:department_id])
     if @user.update(user_params)
         redirect_to users_path, notice: "ユーザーを編集しました！"
       else
         render :edit
       end
-    # respond_to do |format|
-    #   if @user.update(user_params)
-    #     format.html { redirect_to post_url(@user), notice: "User was successfully updated." }
-    #     format.json { render :show, status: :ok, location: @user }
-    #   else
-    #     format.html { render :edit, status: :unprocessable_entity }
-    #     format.json { render json: @user.errors, status: :unprocessable_entity }
-    #   end
+      # respond_to do |format|
+      #   if @user.update(user_params)
+      #     format.html { redirect_to users_path(@user), notice: "user was successfully updated." }
+      #     format.json { render :show, status: :ok, location: @user }
+      #   else
+      #     format.html { render :edit, status: :unprocessable_entity }
+      #     format.json { render json: @user.errors, status: :unprocessable_entity }
+      #   end
+      # end
     # end
   end
   
@@ -47,7 +47,7 @@ class UsersController < ApplicationController
   end
   # Only allow a list of trusted parameters through.
   def user_params
-    params.require(:user).permit(:name, :email, :image, :image_cache, :department_id)
+    params.require(:user).permit(:name, :email, :image, :image_cache, :department_id, :password, :password_confirmation)
   end
 
 end

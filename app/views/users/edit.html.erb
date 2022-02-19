@@ -30,8 +30,15 @@
           <br>
           <%= f.file_field :image, class: "image" %>
         </div>
+        <div>
+          <%= f.label :パスワード %>
+          <%= f.text_field :password %>
+        </div>
+
       <br>
-        <div><button class="btn btn-outline-primary">編集する</button></div>
+        <div class="actions">
+        <button type="submit" class="btn btn-outline-primary">編集する</button>
+      </div>
     <% end %>
     <br>
     <%= link_to '戻る', users_path %>
