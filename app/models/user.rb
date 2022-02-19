@@ -7,7 +7,8 @@ class User < ApplicationRecord
   validates :name, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true
   validates :image, presence: true
-  validates :password, presence: true
+  # 新規レコード作成時（userをnewする場合のみ）のみ、バリデーション
+  validates :password, presence: true, on: :create   
     # アソシエーションのバリデーション
   validates :department_id, :presence => true
 
