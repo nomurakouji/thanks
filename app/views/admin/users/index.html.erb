@@ -30,8 +30,8 @@
             <td><%= user.department.name %></td> 
             <td><%= user.name %></td>
             <td><%= user.email %></td>
-            <td class = check_buttons><%= link_to "編集",   edit_admin_user_path(user), class: 'btn btn-warning'%></td>
-            <td class = check_buttons><%= button_to "削除", admin_user_path(user), method: :delete, data: { confirm: '本当に削除していいですか？' }, class: 'btn btn-danger' %></td>
+            <td class = check_buttons><%= link_to "編集",   edit_admin_user_path(user), class: 'btn btn-outline-info'%></td>
+            <td class = check_buttons><%= button_to "削除", admin_user_path(user), method: :delete, data: { confirm: '本当に削除していいですか？' }, class: 'btn btn-outline-danger' %></td>
           </tr>
         <% end %>
       </tbody>
