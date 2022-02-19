@@ -67,3 +67,6 @@ gem 'mini_magick'
 gem 'ransack'
 gem "font-awesome-rails"
 gem 'faker'
+
+gem 'fog-aws'
+gem 'dotenv-rails'
