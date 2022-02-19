@@ -69,6 +69,6 @@ gem "font-awesome-rails"
 gem 'faker'
 
 gem 'fog-aws'
-gem 'dotenv-rails'
+gem 'dotenv-rails', groups: [:development, :test]
 
 gem "aws-sdk-s3", require: false
