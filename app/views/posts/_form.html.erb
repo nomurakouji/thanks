@@ -6,9 +6,9 @@
     <%= form_with(model: post, local: true) do |form| %>
       <% if post.errors.any? %>
         <div id="error_explanation">
-          <h2><%= pluralize(post.errors.count, "error") %> prohibited this user from being saved:</h2>
-
+          <h2><%= post.errors.count%> 件のエラーがあります。</h2>
           <ul>
+
             <% post.errors.full_messages.each do |message| %>
               <li><%= message %></li>
             <% end %>
