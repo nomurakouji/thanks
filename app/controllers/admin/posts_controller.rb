@@ -1,6 +1,7 @@
 class Admin::PostsController < ApplicationController
   before_action :set_post, only: %i[ show edit update destroy ]
   before_action :authenticate_user!
+  before_action :admin_user
 
   # GET /posts or /posts.json
   def index
@@ -67,6 +68,7 @@ class Admin::PostsController < ApplicationController
   end
 
   def dashboard
+    redirect_to root_path unless current_user.admin?
   end
   
   private
@@ -78,5 +80,9 @@ class Admin::PostsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def post_params
       params.require(:post).permit(:comment, :receiver_id)
+    end
+
+    def admin_user
+      redirect_to root_path unless current_user.admin?
     end
 end
