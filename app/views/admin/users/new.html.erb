@@ -3,7 +3,18 @@
 <div class = "box">
   <div class = "box-inner">
 
-<%= form_with(model: @user, url: admin_users_path, local: true) do |f| %>
+ <%= form_with(model: @user, url: admin_users_path, local: true) do |f| %>
+      <% if @user.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= @user.errors.count%> 件のエラーがあります。</h2>
+          <ul>
+            <% @user.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
    <div class="field">
     <%= f.label :部門 %>
     <%= f.collection_select :department_id, Department.all, :id, :name, include_blank: "選択して下さい" %>
