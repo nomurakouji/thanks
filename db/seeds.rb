@@ -13,6 +13,22 @@ Department.create!(:name => "社長室")
 Department.create!(:name => "広報宣伝部")
 Department.create!(:name => "営業部")
 
+User.create!(department_id: Department.first.id,
+    name: '管理者',
+    email: 'guestadmin@guestadmin.com',
+    password: 'password',
+    admin: true,
+    image: File.open("./app/assets/images/pexels-marta-branco-1173576.jpg")
+    )
+
+User.create!(department_id: Department.second.id,
+    name: 'ゲストユーザー',
+    email: 'guest@guest.com',
+    password: 'password',
+    admin: false,
+    image: File.open("./app/assets/images/pexels-porapak-apichodilok-348520.jpg")
+    )
+
 User.create!(department_id: Department.third.id,
             name: 'arisa',
             email: 'arisa@jarisa.com',
