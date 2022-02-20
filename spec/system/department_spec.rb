@@ -27,11 +27,10 @@ RSpec.describe 'department管理機能', type: :system do
         end
     end
     context 'department編集' do
-        it '新規部門名が表示される' do
+        it '新規部門名が編集される' do
           click_on '部門作成'
           fill_in 'department[name]', with:'開発部'
           click_on '作成する'
-          expect(page). to have_content '開発部'
           test_link = find(:xpath,'/html/body/div[3]/div/table/tbody/tr[2]/td[3]/a')
           test_link.click
           fill_in 'department[name]', with:'ITシステム部'
@@ -39,8 +38,8 @@ RSpec.describe 'department管理機能', type: :system do
           expect(page). to have_content 'ITシステム部'
         end
     end
-    context 'department編集' do
-        it '新規部門名が表示される' do
+    context 'department削除' do
+        it '部門名が削除される' do
           click_on '部門作成'
           fill_in 'department[name]', with:'開発部'
           click_on '作成する'
