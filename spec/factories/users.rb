@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :user do
     association :department
-    department_id{1}
+    # department_id{1}
     # id {1}
     name{ 'ゲスト管理者'}
     email{'guestadmin@guestadmin.com'}
@@ -11,8 +11,8 @@ FactoryBot.define do
     admin {true}
   end
   factory :second_user, class: User do
-    association :department
-    department_id{2}
+    association :department, factory: :second_department
+    # department_id{2}
     # id {2}
     name{ '北河玲子'}
     email{'kitakawa@reiko.com'}
@@ -22,7 +22,7 @@ FactoryBot.define do
     admin {false}
   end
   factory :third_user, class: User do
-    association :department
+    association :department, factory: :department
     department_id{3}
     # id {3}
     name{ 'ゲストユーザー'}
