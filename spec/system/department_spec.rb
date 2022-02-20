@@ -54,4 +54,19 @@ RSpec.describe 'department管理機能', type: :system do
         end
     end
   end
+  describe 'departmentのアクセス制限' do
+    context 'departmentのcrud機能を一般ユーザーが使用できない' do
+      it 'ログイン後画面に表示されない' do
+      department = FactoryBot.create(:department)
+      second_department = FactoryBot.create(:second_department)
+      user = FactoryBot.create(:user, department:department)
+      second_user = FactoryBot.create(:second_user, department:second_department)
+      visit user_session_path
+      fill_in 'Eメール', with:'kitakawa@reiko.com'
+      fill_in 'パスワード', with:'password'
+      click_on 'ログイン'
+      expect(page).not_to have_content('部門管理')
+      end
+    end
+  end
 end
