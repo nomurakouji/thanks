@@ -12,11 +12,11 @@ CarrierWave.configure do |config|
         region:                'ap-northeast-1',
         path_style:            true,    
     }
-
+    # Rspecエラーのため追加
     config.fog_directory  = 'green-production'
     config.asset_host = 'https://s3.amazonaws.com/green-production'
-    # Rspecエラーのため追加
-    config.fog_public     = true
+    # Rspecエラーのため修正
+    config.fog_public     = false
     config.fog_attributes = {'Cache-Control' => 'public, max-age=86400'}
   
     case Rails.env
