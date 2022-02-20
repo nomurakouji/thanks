@@ -21,4 +21,15 @@ FactoryBot.define do
     password_confirmation{'password'}
     admin {false}
   end
+  factory :third_user, class: User do
+    association :department
+    department_id{3}
+    id {3}
+    name{ 'ゲストユーザー'}
+    email{'guest@guest.com'}
+    image{Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/pexels-porapak-apichodilok-348520.jpg'))}
+    password{'password'}
+    password_confirmation{'password'}
+    admin {false}
+  end
 end

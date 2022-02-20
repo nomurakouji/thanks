@@ -8,4 +8,9 @@ FactoryBot.define do
       id {2}
       name{ '営業部' }
     end
+
+    factory :third_department, class: Department do
+      id {3}
+      name{ 'ゲスト' }
+    end
 end
