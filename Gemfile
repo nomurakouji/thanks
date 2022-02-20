@@ -33,7 +33,9 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'pry-rails'
   gem 'rspec-rails', '= 5.0.2'
+  gem 'spring-commands-rspec'
   gem 'factory_bot_rails'
+  gem 'launchy'
 end
 
 group :development do
@@ -60,14 +62,19 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'rubocop', require: false
 
 gem 'devise'
-gem 'rexml'
 gem 'devise-i18n'
+# 画像
 gem 'carrierwave'
 gem 'mini_magick'
+# 検索機能
 gem 'ransack'
+# フォント
 gem "font-awesome-rails"
+# seedファイル
 gem 'faker'
-
+# s3利用
 gem 'fog-aws'
 gem 'dotenv-rails', groups: [:development, :test]
 gem "aws-sdk-s3", require: false
+# rspec
+gem 'rexml'

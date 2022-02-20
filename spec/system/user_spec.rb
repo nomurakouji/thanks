@@ -1,8 +1,11 @@
 require 'rails_helper'
+
 RSpec.describe 'ユーザー管理機能' , type: :system do
     # describe 'ログイン機能' do 
     #   context 'ゲスト管理者がログインした場合' do
     #     it 'ゲスト管理者が表示される' do
+    #         department = FactoryBot.create(:department)
+    #         user = FactoryBot.create(:user, department:department)
     #         visit user_session_path
     #         click_on 'ゲスト管理者ログイン'
     #         expect(page). to have_content 'ログイン中:管理者'
@@ -53,20 +56,23 @@ RSpec.describe 'ユーザー管理機能' , type: :system do
             it 'ユーザーを編集できる' do    
                 department = FactoryBot.create(:department)
                 user = FactoryBot.create(:user, department:department)
+                user = FactoryBot.create(:second_user, department:department)
                 visit user_session_path
                 click_on 'ゲスト管理者ログイン'
                 sleep(2)
                 test_link = find(:xpath,'/html/body/div[2]/div/div/div/a[2]/button')
                 test_link.click
-                sleep(2)
-                test_link = find(:xpath,'/html/body/div[2]/div/table/tbody[2]/tr[1]/td[5]/a')
+                sleep(3)
+                test_link = find(:xpath,'/html/body/div[3]/div/table/tbody[2]/tr[2]/td[5]/a')
                 test_link.click
-                sleep(2)
+                sleep(3)
                 fill_in '名前', with:'南川礼子'
+
                 click_on '編集する'
                 expect(page). to have_content '南川礼子'
                 sleep(2)
             end
         end
+        
     end 
 end
