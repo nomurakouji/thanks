@@ -66,8 +66,8 @@ RSpec.describe 'Post管理機能', type: :system do
     end
   end
     describe 'アクセス制限に関するテスト' do
-      context 'ユーザーの編集機能' do
-        it '他人の情報を編集できない' do    
+      context '投稿ーの編集機能' do
+        it '他人の投稿を編集できない' do    
             department = FactoryBot.create(:department)
             second_department = FactoryBot.create(:second_department)
             user = FactoryBot.create(:user, department:department)
