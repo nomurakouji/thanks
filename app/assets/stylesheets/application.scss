@@ -21,39 +21,45 @@ $fa-font-path: '@fortawesome/fontawesome-free/webfonts';
  */
 
 .header {
-  color: black;
-  padding: auto 0;
+  // color: black;
+  // padding: auto 0;
   background-color: lightblue;
   // text-align: left;
   height: 3.0rem;
-  float: left;
+  // float: left;
   display: table;
 }
 
 // ヘッダーの左側
 .header-left {
   // text-align: left;
-  vertical-align: middle;
+  // vertical-align: middle;
   display: table-cell;
   background-color: pink;
 }
 
-// .ul.header-left-ul.li{
-//   margin-bottom: 1rem;
-// }
-
-.ul {
+.header-left ul {
   list-style-type: none;
-  padding: 0;
-  margin: 0;
+  padding: 1rem;
+  margin: 1rem;
   text-align: justify;
-  // float: left;
-}
-.li {
+  float: left;
   display: inline-block;
-  padding:  0 3rem;
-  margin-bottom: 1rem;
+  background-color: #222222;
+
 }
+ul li {
+  padding:  0 3rem;
+  // margin-bottom: 1rem;
+  // text-align: justify
+  font-size: 12px;
+  width: 25%;
+  background-color: #222222;
+}
+.nav-justify ul li a {
+  background: #ccc;
+}
+
 // ヘッダーの右側
 .header-right {
   text-align: right;
@@ -67,6 +73,7 @@ $fa-font-path: '@fortawesome/fontawesome-free/webfonts';
   vertical-align: middle;
   display: table-cell;
   background-color: peru;
+  width: 2rem;
 }
 
 

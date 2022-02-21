@@ -23,31 +23,32 @@
 
   <body>
     <div class = "header">
-      <div class = "header-left">
+    <%# <nav class = "navigation"> %>
+      <p class = "header-left">
         <% if current_user.try(:admin) %>
           <ul>
             <li><%= link_to "投稿する", new_post_path %></li>
             <li><%= link_to "投稿管理", admin_posts_path %></li>
             <li><%= link_to "ユーザー管理", admin_users_path %></li>
             <li><%= link_to "部門管理", admin_departments_path %></li>
-            <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+            <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
           </ul>
-      </div>
-      <div class = "header-right">
+      </p>
+      <p class = "header-right">
           <%= "ログイン中:#{current_user.name}" %>
-      </div>
+      </p>
       
-      <div class = "header-left">
+      <p class = "header-left">
         <% elsif user_signed_in? %>
           <%= link_to "投稿する", new_post_path %>
           <%= link_to "投稿一覧", posts_path %>
           <%= link_to "ユーザー一覧", users_path %>
           <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-      </div>
-      <div class = "header-right">
+      </p>
+      <p class = "header-right">
               <%="ログイン中:#{current_user.name}" %>
-      </div>
-      <div class = "header-right-right">
+      </p>
+      <p class = "header-right-right">
         <%# いいねの既読の有無に応じて、アイコンの表示を変更する。一連のロジック %>
           <% if user_signed_in? %>
           <%# ユーザーがログインしていたらいいねの既読有無を確認 %>
@@ -66,14 +67,15 @@
                   <% end %>
               <% end %>
           <% end %>
-      </div>
+      </p>
 
-      <div class = "header-left">
+      <p class = "header-left">
         <% else %>
           <%= link_to "ゲストログイン", homes_guest_sign_in_path, method: :post %>
           <%= link_to "ゲスト管理者ログイン", homes_guest_admin_sign_in_path, method: :post %>
         <% end %>
-      </div>
+      </p>
+    <%# </nav> %>
     </div>
 
           <%# ログイン時の表示 %>
