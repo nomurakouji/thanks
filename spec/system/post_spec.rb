@@ -65,5 +65,33 @@ RSpec.describe 'Post管理機能', type: :system do
         end
     end
   end
+    describe 'アクセス制限に関するテスト' do
+      context 'ユーザーの編集機能' do
+        it '他人の情報を編集できない' do    
+            department = FactoryBot.create(:department)
+            second_department = FactoryBot.create(:second_department)
+            user = FactoryBot.create(:user, department:department)
+            second_user = FactoryBot.create(:second_user, department:second_department)
+            visit user_session_path
+            click_on 'ゲスト管理者ログイン'
+            test_link = find(:xpath,'/html/body/div[2]/div/div/div/a[1]/button')
+            test_link.click
+            click_on '投稿する'
+            select '北河玲子', from: 'post[receiver_id]'
+            fill_in 'post[comment]', with:'ありがとう'
+            test_link = find(:xpath,'/html/body/div[2]/div/div/div/form/div[4]/button')
+            test_link.click
+            click_on '戻る'
+            click_on 'ログアウト'
+            visit user_session_path
+            fill_in 'Eメール', with:'kitakawa@reiko.com'
+            fill_in 'パスワード', with:'password'
+            click_on 'ログイン'
+            test_link = find(:xpath,'//*[@id="slick-slide00"]/p/a[1]/img')
+            test_link.click
+            expect(page.all('編集').count).to eq 0
+        end
+      end
+  end
 end
 
