@@ -112,7 +112,9 @@ RSpec.describe 'ユーザー管理機能' , type: :system do
     #             expect(User.where(name: '北河玲子').count).to eq 0
     #         end
     #     end
+    describe 'アクセス制限に関するテスト' do
+      context 'ユーザーの編集機能' do
+        it '他人の情報を編集できない' do    
 
-    
     end 
 end
