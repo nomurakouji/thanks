@@ -19,48 +19,82 @@ $fa-font-path: '@fortawesome/fontawesome-free/webfonts';
  *= require_tree .
  *= require_self
  */
+ 
+ .header {
+   color: black;
+  //  padding: 1rem 0;
+   background-color: lightblue;
+   vertical-align: middle;
 
-.header {
+  //  text-align: left;
+   height: 3.5rem;
+   float: left;
+   display: table;
+  }
+
+  .header-left {
+    // text-align: left;
+    vertical-align: middle;
+    display: table-cell;
+    background-color: peru;
+    text-align: left;
+    vertical-align: middle;
+  }
+//   .header-left ul {
+//     list-style-type: none;
+//     // padding-top: 0.4rem;
+//     padding-left: 0;
+//     margin: 0;
+//     text-align: justify;
+//     // height: 2.2rem;
+//   }
+
+// .header-left ul li {
+//   // display: inline-block;
+//   padding-left: 0.8rem;
+//   padding-top: 2rem;
+//   display: inline;
+
+// }
+
+.admin_column {
+  padding-left: 0;
+  padding-right: 2rem;
+  // padding-top: 2rem;
   color: black;
-  padding: 1rem 0;
-  background-color: lightblue;
-  text-align: left;
-  height: 3.5rem;
-}
-.header-right {
-  float: right;
+  display: inline-block
+
 }
 
-body {
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
 
-footer {
-  text-align: center;
-  padding: 0.8rem;
-  height: 3rem;
-  background: lightblue;
-  margin-top: auto;
-}
+  .header-right {
+    text-align: right;
+    vertical-align: middle;
+    background-color: pink;
+    display: table-cell;
+  }
+  .header-right-right {
+    text-align: center;
+    vertical-align: middle;
+    background-color: greenyellow;
+    display: table-cell;
+  }
 
-.header-left {
-  text-align: left;
-  vertical-align: middle;
-  background-color: peru;
-}
+ 
 
-.header-right {
-  text-align: right;
-  vertical-align: middle;
-  background-color: pink;
-  // vertical-align: middle;
-}
-.header-right-right {
-  text-align: right;
-  vertical-align: middle;
-  background-color: greenyellow;
-  // vertical-align: middle;
-}
+  body {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  footer {
+    text-align: center;
+    padding: 0.8rem;
+    height: 3rem;
+    background: lightblue;
+    margin-top: auto;
+  }
+  
+  
