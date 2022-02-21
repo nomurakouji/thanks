@@ -23,58 +23,68 @@
 
   <body>
     <div class = "header">
-    
-      <% if current_user.try(:admin) %>
-        <%= link_to "投稿する", new_post_path %>
-        <%= link_to "投稿管理", admin_posts_path %>
-        <%= link_to "ユーザー管理", admin_users_path %>
-        <%= link_to "部門管理", admin_departments_path %>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-        <%# <%= link_to "使用方法", instructions_path %> 
-    
-    <div class = "header-right">
-        <%= "ログイン中:#{current_user.name}" %>
-    </div>
-      <% elsif user_signed_in? %>
-        <%= link_to "投稿する", new_post_path %>
-        <%= link_to "投稿一覧", posts_path %>
-        <%= link_to "ユーザー一覧", users_path %>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-        <%# <%= link_to "使用方法", instructions_path  %>
-    <div class = "header-right">
-        <%="ログイン中:#{current_user.name}" %>
-      <%# いいねの既読の有無に応じて、アイコンの表示を変更する。一連のロジック %>
-        <% if user_signed_in? %>
-        <%# ユーザーがログインしていたらいいねの既読有無を確認 %>
-          <% @notifications = current_user.passive_notifications.where(checked: false) %>
-            <%# checke: false = 未読があった場合 %>
-            <% if @notifications.any? %>
-                <%# fontawesomeにリンクを貼る %>
-                <%= link_to notifications_path do %>
-                  <%# fontawesomeでアイコンを表示 %>
-                  <span><i class="fa-solid fa-lightbulb fa-2x" style="color: gold;"></i></span>
-                <% end %>
-            <%# 既読済みの場合 %>
-            <% else %>
-                <%= link_to notifications_path do %>
-                  <span><i class="fa-regular fa-lightbulb fa-2x" style="color: khaki;"></i></span>
-                <% end %>
-            <% end %>
+      <div class = "header-left">
+        <% if current_user.try(:admin) %>
+          <ul>
+            <li><%= link_to "投稿する", new_post_path %></li>
+            <li><%= link_to "投稿管理", admin_posts_path %></li>
+            <li><%= link_to "ユーザー管理", admin_users_path %></li>
+            <li><%= link_to "部門管理", admin_departments_path %></li>
+            <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+          </ul>
+      </div>
+      <div class = "header-right">
+          <%= "ログイン中:#{current_user.name}" %>
+      </div>
+      
+      <div class = "header-left">
+        <% elsif user_signed_in? %>
+          <%= link_to "投稿する", new_post_path %>
+          <%= link_to "投稿一覧", posts_path %>
+          <%= link_to "ユーザー一覧", users_path %>
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+      </div>
+      <div class = "header-right">
+              <%="ログイン中:#{current_user.name}" %>
+      </div>
+      <div class = "header-right-right">
+        <%# いいねの既読の有無に応じて、アイコンの表示を変更する。一連のロジック %>
+          <% if user_signed_in? %>
+          <%# ユーザーがログインしていたらいいねの既読有無を確認 %>
+            <% @notifications = current_user.passive_notifications.where(checked: false) %>
+              <%# checke: false = 未読があった場合 %>
+              <% if @notifications.any? %>
+                  <%# fontawesomeにリンクを貼る %>
+                  <%= link_to notifications_path do %>
+                    <%# fontawesomeでアイコンを表示 %>
+                    <span><i class="fa-solid fa-lightbulb fa-2x" style="color: gold;"></i></span>
+                  <% end %>
+              <%# 既読済みの場合 %>
+              <% else %>
+                  <%= link_to notifications_path do %>
+                    <span><i class="fa-regular fa-lightbulb fa-2x" style="color: khaki;"></i></span>
+                  <% end %>
+              <% end %>
+          <% end %>
+      </div>
+
+      <div class = "header-left">
+        <% else %>
+          <%= link_to "ゲストログイン", homes_guest_sign_in_path, method: :post %>
+          <%= link_to "ゲスト管理者ログイン", homes_guest_admin_sign_in_path, method: :post %>
         <% end %>
+      </div>
     </div>
 
-      <% else %>
-        <%= link_to "ゲストログイン", homes_guest_sign_in_path, method: :post %>
-        <%= link_to "ゲスト管理者ログイン", homes_guest_admin_sign_in_path, method: :post %>
-      <% end %>
+          <%# ログイン時の表示 %>
+          <% if notice %>
+            <p class="alert alert-notice"><%= notice %></p>
+          <% end %>
+          <% if alert %>
+            <p class="alert alert-error"><%= alert %></p>
+          <% end %>
+    
 
-      <% if notice %>
-        <p class="alert alert-notice"><%= notice %></p>
-      <% end %>
-      <% if alert %>
-        <p class="alert alert-error"><%= alert %></p>
-      <% end %>
-    </div>
 
 
     <%= yield %>
@@ -95,5 +105,5 @@
     <footer>
       <div class = footer-sentence>Copyright ©︎ Thanks CO.,LTD. All Rights Reserved.</div>
     </footer>
-    </body>
+  </body>
 </html>
