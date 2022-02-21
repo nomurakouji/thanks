@@ -22,65 +22,39 @@ $fa-font-path: '@fortawesome/fontawesome-free/webfonts';
  
  .header {
    color: black;
-  //  padding: 1rem 0;
    background-color: lightblue;
    vertical-align: middle;
-
-  //  text-align: left;
    height: 3.5rem;
    float: left;
    display: table;
   }
 
   .header-left {
-    // text-align: left;
     vertical-align: middle;
     display: table-cell;
-    background-color: peru;
     text-align: left;
     vertical-align: middle;
   }
-//   .header-left ul {
-//     list-style-type: none;
-//     // padding-top: 0.4rem;
-//     padding-left: 0;
-//     margin: 0;
-//     text-align: justify;
-//     // height: 2.2rem;
-//   }
-
-// .header-left ul li {
-//   // display: inline-block;
-//   padding-left: 0.8rem;
-//   padding-top: 2rem;
-//   display: inline;
-
-// }
 
 .admin_column {
   padding-left: 0;
   padding-right: 2rem;
-  // padding-top: 2rem;
   color: black;
   display: inline-block
 
 }
 
-
   .header-right {
     text-align: right;
+    padding-right: 1rem;
     vertical-align: middle;
-    background-color: pink;
     display: table-cell;
   }
   .header-right-right {
-    text-align: center;
+    text-align: left;
     vertical-align: middle;
-    background-color: greenyellow;
     display: table-cell;
-  }
-
- 
+  } 
 
   body {
     width: 100%;

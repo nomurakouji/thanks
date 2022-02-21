@@ -40,10 +40,10 @@
     
           <% elsif user_signed_in? %>
         <p class = "header-left">
-            <%= link_to "投稿する", new_post_path %>
-            <%= link_to "投稿一覧", posts_path %>
-            <%= link_to "ユーザー一覧", users_path %>
-            <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+            <a class = "admin_column"><%= link_to "投稿する", new_post_path %></a>
+            <a class = "admin_column"><%= link_to "投稿一覧", posts_path %></a>
+            <a class = "admin_column"><%= link_to "ユーザー一覧", users_path %></a>
+            <a class = "admin_column"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></a>
     
         </p>
         <p class = "header-right">
@@ -72,8 +72,8 @@
 
           <% else %>
         <p class = "header-left">
-            <%= link_to "ゲストログイン", homes_guest_sign_in_path, method: :post %>
-            <%= link_to "ゲスト管理者ログイン", homes_guest_admin_sign_in_path, method: :post %>
+            <a class = "admin_column"><%= link_to "ゲストログイン", homes_guest_sign_in_path, method: :post %></a>
+            <a class = "admin_column"><%= link_to "ゲスト管理者ログイン", homes_guest_admin_sign_in_path, method: :post %></a>
           <% end %>
         </p>
     </div>
