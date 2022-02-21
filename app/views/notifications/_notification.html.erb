@@ -1,12 +1,12 @@
+<%# パーシャル/未使用 %>
+
 <%# メソッド？？？ %>
 <% visiter = notification.visiter %> 
 <% post = notification.post %>
 
-  
-
-<div class="user-view clearfix ">
-  <%= notification_form(notification) %><%= " (#{time_ago_in_words(notification.created_at)}前)" %>
-  <%= notification_form(notification) %><%= "#{notification.visiter.name}さんが『#{notification.post.comment}』にいいねしました" %>
-  
-</div>
+    <div class="user-view clearfix ">
+      <%= notification_form(notification) %><%= " (#{time_ago_in_words(notification.created_at)}前)" %>
+      <%= notification_form(notification) %><%= "#{notification.visiter.name}さんが『#{notification.post.comment}』にいいねしました" %>
+      
+    </div>
 
