@@ -13,8 +13,8 @@
           <%# これはeachと同義。部分パーシャル %>
           <%# <%= render @notifications %> 
         <% @notifications.each do |notification| %> 
-        <table class="table table-hover">
-        <th><%= render partial: 'notification', locals: {notification: notification} %></th>
+        <table class="table">
+            <td><%= render partial: 'notification', locals: {notification: notification} %></td>
         </table>
         <% end %> 
         </div>
