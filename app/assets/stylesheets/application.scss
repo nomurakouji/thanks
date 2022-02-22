@@ -37,10 +37,11 @@ $fa-font-path: '@fortawesome/fontawesome-free/webfonts';
   }
 
 .admin_column {
-  padding-left: 0;
+  vertical-align: middle;
   padding-right: 2rem;
   color: black;
-  display: inline-block
+  // インラインブロック要素に変換
+  display: inline-block;
 
 }
 
