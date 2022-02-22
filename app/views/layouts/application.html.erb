@@ -26,7 +26,7 @@
           
           <% if current_user.try(:admin) %>
         <p class = "header-left">
-            <a class = "admin_column"><%= link_to "投稿する", new_post_path %></a>
+            <a class = "admin_column"><%= link_to "投稿する", new_admin_post_path %></a>
              <a class = "admin_column"><%= link_to "投稿管理", admin_posts_path %></a>
              <a class = "admin_column"><%= link_to "ユーザー管理", admin_users_path %></a>
             <a class = "admin_column"> <%= link_to "部門管理", admin_departments_path %></a>

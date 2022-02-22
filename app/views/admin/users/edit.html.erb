@@ -4,6 +4,18 @@
   <div class = "box-inner">
 
     <%= form_with(model: @user, url: admin_user_path, local: true) do |f| %>
+     <% if @user.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@user.errors.count, "") %> 件のエラーがあります。</h2>
+
+          <ul>
+            <% @user.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
       <p>
         ユーザーID:<%= @user.id %>
       </p>
