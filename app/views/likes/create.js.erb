@@ -1,1 +1,11 @@
+<%# post %>
 $('#likes_buttons_<%= @post.id %>').html("<%= j(render partial: 'likes/like', locals: {post: @post}) %>");
+
+<%# フォロー %>
+<%# @follows.each do |f|の|f|はブロック変数のため、@postで指定し直す %>
+$('#likes_buttons_<%= @post.id %>').html("<%= j(render partial: 'likes/likefollow', locals: {f: @post}) %>");
+
+
+$('#likes_buttons_<%= @post.id %>').html("<%= j(render partial: 'likes/likesranking', locals: {l: @post}) %>");
+
+

@@ -1,1 +1,10 @@
-$('#likes_buttons_<%= @post.id %>').html("<%= escape_javascript(render partial: 'likes/like', locals: {post: @post}) %>");
+<%# post %>
+$('#likes_buttons_<%= @post.id %>').html("<%= j(render partial: 'likes/like', locals: {post: @post}) %>");
+
+<%# フォロー %>
+$('#likes_buttons_<%= @post.id %>').html("<%= j(render partial: 'likes/likefollow', locals: {f: @post}) %>");
+
+$('#likes_buttons_<%= @post.id %>').html("<%= j(render partial: 'likes/likesranking', locals: {l: @post}) %>");
+
+
+

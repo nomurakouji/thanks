@@ -61,19 +61,12 @@
               <br>
               <%= "メッセージ:#{l.comment}" %>
               <br>
-              <% if current_user.liked_by?(l.id) %>
-                <%= link_to destroy_like_path(l), method: :delete do %>
-                  <%# fontawesomeでアイコンを表示 %>
-                  <span><i class="fa-solid fa-heart fa-2x" style="color: deeppink;"></i></span>
-                  <%= l.likes.count %>
-                <% end %>
-              <% else %>
-                <%= link_to create_like_path(l), method: :post do %>
-                  <%# fontawesomeでアイコンを表示 %>
-                  <span><i class="fa-regular fa-heart fa-2x" style="color: lightpink;"></i></span>
-                  <%= l.likes.count %>
-                <% end %>
-              <% end %>
+           
+                  <div id="likes_buttons_<%= l.id %>">
+                    <%= render partial: 'likes/likesranking', locals: { l: l} %>
+                  </div>
+
+
           </div>
     <% end %>
     </div>
@@ -90,7 +83,6 @@
             <p class = "cardlistImage"><%= link_to post_path(f.id) do %>
               <img src = <%= User.find(f.receiver_id).image.url %> class = "icon_image"><a>
             <% end %>
-              <br>
               <%="日時: #{f.created_at.strftime('%Y/%m/%d/%R')}" %>
               <br>
               <%= "投稿者:#{f.user.name}" %>
@@ -99,22 +91,11 @@
               <br>
               <%= "メッセージ:#{f.comment}" %>
               <br>
-                <div class = likes>
+               
+                <div id="likes_buttons_<%= f.id %>">
+                    <%= render partial: 'likes/likefollow', locals: { f: f} %>
+                </div>
 
-                  <% if current_user.liked_by?(f.id) %>
-            <%= link_to destroy_like_path(f), method: :delete do %>
-                <%# fontawesomeでアイコンを表示 %>
-                <i class="fa-solid fa-heart fa-2x" style="color: deeppink;"></i>
-                <%= f.likes.count %>
-            <% end %>
-        <% else %>
-            <%= link_to create_like_path(f), method: :post do %>
-                <%# fontawesomeでアイコンを表示 %>
-                <i class="fa-regular fa-heart fa-2x" style="color: lightpink;"></i>
-                <%= f.likes.count %>
-            <% end %>
-        <% end %>
-              </div>
           </div>
     <% end %>
     </div>
@@ -142,7 +123,7 @@
                 <%= "メッセージ:#{post.comment}" %>
               <br>
                 
-                
+
                 <div id="likes_buttons_<%= post.id %>">
                   <%= render partial: 'likes/like', locals: { post: post} %>
                 </div>
