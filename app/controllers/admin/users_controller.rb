@@ -23,7 +23,7 @@ class Admin::UsersController < ApplicationController
   
   def index
     @q = User.ransack(params[:q])
-    @users = @q.result(distinct: true)
+    @users = @q.result(distinct: true).page(params[:page]).per(7)
     @d = User.ransack(params[:q])
     @deparmemt = @d.result(distinct: true)
     

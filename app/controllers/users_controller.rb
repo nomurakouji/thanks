@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
   def index
     @q = User.ransack(params[:q])
-    @users = @q.result(distinct: true)
+    @users = @q.result(distinct: true).page(params[:page]).per(7)
     # @d = User.ransack(params[:q])
     # @deparment = @d.result(distinct: true)
   end
