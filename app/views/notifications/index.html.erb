@@ -17,6 +17,7 @@
             <td><%= render partial: 'notification', locals: {notification: notification} %></td>
         </table>
         <% end %> 
+        <%= paginate @notifications %>
         </div>
       <% else %>
         <h5 class="notice">現時点ではありません</h5>
