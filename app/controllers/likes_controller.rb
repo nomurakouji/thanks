@@ -21,6 +21,5 @@ class LikesController < ApplicationController
   # いいねの非同期にも使用
   def set_variables
     @post = Post.find(params[:post_id])
-    @follow = Post.where(user_id: [*current_user.following_ids]).order(created_at: :desc)
   end
 end
