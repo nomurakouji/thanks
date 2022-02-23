@@ -9,16 +9,19 @@ class User < ApplicationRecord
   validates :image, presence: true
   # 新規レコード作成時（userをnewする場合のみ）のみ、バリデーション
   validates :password, presence: true, on: :create   
-    # アソシエーションのバリデーション
+  # アソシエーションのバリデーション
   validates :department_id, :presence => true
-
+  # アソシエーション
   has_many :posts, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :like_posts, through: :likes, source: :post
+  belongs_to :department, optional: true
+  # いいねを押したかを判別するメソッド
   def liked_by?(post_id)
+    # whereメソッドは基本用法=>モデル.where("条件")
     likes.where(post_id: post_id).exists?
   end
-  belongs_to :department, optional: true
+  # 画像投稿
   mount_uploader :image, ImageUploader
   # 紐付ける名前とクラス名が異なるため、明示的にクラス名とIDを指定して紐付け
   # active_notificataions => 自分からの通知 , passive_notifications => 相手からの通知

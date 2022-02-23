@@ -1,0 +1,14 @@
+       
+        <% if current_user.liked_by?(post.id) %>
+            <%= link_to destroy_like_path(post.id), method: :delete, remote: true do %>
+                <%# fontawesomeでアイコンを表示 %>
+                <i class="fa-solid fa-heart fa-2x" style="color: deeppink;"></i>
+            <% end %>
+                <%= post.likes.count %>
+        <% else %>
+            <%= link_to create_like_path(post.id), method: :post, remote: true do %>
+                <%# fontawesomeでアイコンを表示 %>
+                <i class="fa-regular fa-heart fa-2x" style="color: lightpink;"></i>
+            <% end %>
+                <%= post.likes.count %>
+        <% end %>
