@@ -31,11 +31,11 @@ a {
   //  height: 10rem;
    float: left;
    display: table;
-   background-image: url('pexels-asad-photo-maldives-1198839.jpg');
+   background-image: url('hands-big.2022-02-24 19.50.15.png');
    background-repeat: no-repeat;
    background-size: cover;
    background-position: center center;
-   height: 25vh;
+   height: 35vh;
   }
 
   .header-left {
@@ -52,7 +52,7 @@ a {
   display: inline-block;
 }
 .header-left a {
- color: black;
+ color: white;
 }
 
   .header-right {
@@ -61,6 +61,7 @@ a {
     padding-right: 1rem;
     // vertical-align: middle;
     display: table-cell;
+    color: white;
   }
   .header-right-right {
     text-align: left;
