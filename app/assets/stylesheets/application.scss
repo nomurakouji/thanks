@@ -20,40 +20,52 @@ $fa-font-path: '@fortawesome/fontawesome-free/webfonts';
  *= require_self
  */
  
+a {
+  color: black;
+}
+
  .header {
    color: black;
    background-color: lightblue;
    vertical-align: middle;
-   height: 3.5rem;
+  //  height: 10rem;
    float: left;
    display: table;
+   background-image: url('pexels-asad-photo-maldives-1198839.jpg');
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-position: center center;
+   height: 25vh;
   }
 
   .header-left {
-    vertical-align: middle;
-    display: table-cell;
+    // vertical-align: middle;
+    // display: table-cell;
+    margin-top: 1rem;
     text-align: left;
-    vertical-align: middle;
   }
 
-.admin_column {
+.header_column {
   vertical-align: middle;
   padding-right: 2rem;
-  color: black;
   // インラインブロック要素に変換
   display: inline-block;
-
+}
+.header-left a {
+ color: black;
 }
 
   .header-right {
     text-align: right;
+    margin-top: 1rem;
     padding-right: 1rem;
-    vertical-align: middle;
+    // vertical-align: middle;
     display: table-cell;
   }
   .header-right-right {
     text-align: left;
-    vertical-align: middle;
+    margin-top: 1rem;
+    // vertical-align: middle;
     display: table-cell;
   } 
 
