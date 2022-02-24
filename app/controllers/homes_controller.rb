@@ -8,7 +8,7 @@ class HomesController < ApplicationController
     end
     # 上記のuserをログインさせることができる(deviseのメソッド)
     sign_in user
-    redirect_to root_path, notice: 'ゲストユーザーとしてログインしました'
+    redirect_to root_path  #, notice: 'ゲストユーザーとしてログインしました'
   end
   
   def new_guestadmin
@@ -21,6 +21,6 @@ class HomesController < ApplicationController
     end
   # 上記のguestadminをログインさせることができる(deviseのメソッド)
   sign_in guestadmin
-  redirect_to dashboard_path, notice: 'ゲスト管理者ユーザーとしてログインしました'
+  redirect_to dashboard_path  #, notice: 'ゲスト管理者ユーザーとしてログインしました'
   end
 end
