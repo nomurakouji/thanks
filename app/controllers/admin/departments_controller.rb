@@ -22,7 +22,7 @@ class Admin::DepartmentsController < ApplicationController
   end
   
   def index
-    @departments = Department.all
+    @departments = Department.all.all.page(params[:page]).per(7)
   end
 
   def edit

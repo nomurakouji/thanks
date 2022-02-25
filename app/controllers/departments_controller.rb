@@ -21,7 +21,7 @@ class DepartmentsController < ApplicationController
   end
   
   def index
-    @departments = Department.all
+    @departments = Department
   end
 
   def edit
