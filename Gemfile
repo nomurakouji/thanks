@@ -80,5 +80,5 @@ gem "aws-sdk-s3", require: false
 gem 'rexml'
 # jquery
 gem 'jquery-rails'
-
+# ページネーション
 gem 'kaminari'

@@ -22,9 +22,9 @@
                 <%= "メッセージ:#{post.comment}" %>
               <br>
                 
-                <div id="likes_buttons_<%= post.id %>">
+                <div class="likes_buttons_<%= post.id %>">
                     <%= render partial: 'likes/like', locals: { post: post} %>
-                </div>
+                  </div>
 
           </div>
     <% end %>
@@ -52,7 +52,7 @@
               <%= "メッセージ:#{post.comment}" %>
               <br>
            
-                  <div id="likes_buttons_<%= post.id %>">
+                   <div class="likes_buttons_<%= post.id %>">
                     <%= render partial: 'likes/like', locals: { post: post} %>
                   </div>
 
@@ -82,9 +82,9 @@
               <%= "メッセージ:#{post.comment}" %>
               <br>
                
-                <div id="likes_buttons_<%= post.id %>">
+                <div class="likes_buttons_<%= post.id %>">
                     <%= render partial: 'likes/like', locals: { post: post} %>
-                </div>
+                  </div>
 
           </div>
     <% end %>
@@ -94,33 +94,3 @@
 
 
 
-<a class = "title" >Post </a> 
-
-<div class = "content">
-  <div class = "card-wrap">
-    <div class = "slider">
-    <% @posts.each do |post| %>
-          <div>
-            <p class = "cardlistImage"><%= link_to post_path(post.id) do %>
-              <img src = <%= User.find(post.receiver_id).image.url %> class = "icon_image"><a>
-            <% end %>
-              <%="日時: #{post.created_at.strftime('%Y/%m/%d/%R')}" %>
-              <br>
-              <%= "投稿者:#{post.user.name}" %>
-              <br>
-              <%= "宛先:#{User.find(post.receiver_id).name}" %> 
-              <br>
-                <%= "メッセージ:#{post.comment}" %>
-              <br>
-                
-
-                <div id="likes_buttons_<%= post.id %>">
-                  <%= render partial: 'likes/like', locals: { post: post} %>
-                </div>
-
-
-          </div>
-    <% end %>
-    </div>
-  </div>
-</div>
