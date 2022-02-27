@@ -27,13 +27,18 @@
             <td><%= user.department.name %></td> 
             <td><%= user.name %></td>
             <td><%= user.email %></td>
-            <% unless  current_user.id == user.id  %>
+            <% if  current_user.id == user.id  %>
+              <td>-</td>
+            <% else %>
               <td><div id="follow_form_"><%= render 'follow_form', user: user %> </div></td>
             <% end %>
-            <td> <%= link_to 'メッセージ', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: :post %></td>
-            <% if current_user.admin == true  || ( current_user.id == user.id )%>
-              <td class = check_buttons><%= button_to "編集", edit_user_path(user),method: :get ,class: 'btn btn-outline-info'%></td>
-            <% end %>
+            
+            <% if  current_user.id == user.id  %>
+              <td>-</td>
+            <% else %>
+              <td> <%= link_to 'メッセージ', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: :post %></td>
+            <% end %> 
+            
           </tr>
         <% end %>
       </tbody>
