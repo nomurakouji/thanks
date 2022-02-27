@@ -3,52 +3,61 @@
 <div class = "box">
   <div class = "box-inner">
 
-    <%= form_with(model: @user, local: true) do |f| %>
-      <% if @user.errors.any? %>
-          <div id="error_explanation">
-            <h2><%= pluralize(@user.errors.count, "") %> 件のエラーがあります。</h2>
+    <p>
+      <strong>ユーザーID:</strong>
+      <%= @user.id %> 
+    </p>
 
-            <ul>
-              <% @user.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
-              <% end %>
-            </ul>
-          </div>
-        <% end %>
-        
-      <p>
-        ユーザーID:<%= @user.id %>
-      </p>
-        
-      <div class="field">
-          <%= f.label :部門 %>
-          <%= f.collection_select :department_id, Department.all, :id, :name %>
-      </div>
+    <p>
+      <strong>部門:</strong>
+      <%= @user.department.name %>
+    </p>
 
-      <div class="field">
-          <%= f.label :名前 %>
-          <%= f.text_field :name %>
-      </div>
-        
-        <div>
-          <%= f.label :Eメール %>
-          <%= f.text_area :email %>
-        </div>
+    <p>
+      <strong>宛先:</strong>
+      <%= @user.name %>
+    </p>
 
-        <div class="field">
-          <%= f.label :画像 %>
-          <img src = <%= @user.image.url %> class = "icon_image">
-          <br>
-          <br>
-          <%= f.file_field :image, class: "image" %>
-        </div>
+    <p>
+      <strong>eメール:</strong>
+      <%= @user.email %>
+    </p>
 
-      <br>
-        <div class="actions">
-        <button type="submit" class="btn btn-outline-primary">編集する</button>
-      </div>
+    <p>
+      <strong>写真:</strong>
+      <img src = <%= @user.image.url%> class = "icon_image">  
+    </p>
+
+
+    <% if current_user.admin == true  || ( current_user.id == @user_id )%>
+      <%= link_to '編集', edit_user_path(@user) %>
     <% end %>
-    <br>
-    <%= link_to '戻る', users_path %>
+      <%# 投稿一覧または通知画面に戻したい %>
+      <%= link_to '戻る', :back %>
+    
   </div>
 </div>
+
+    <p>
+      <strong>投稿数:</strong>
+      <%= Post.where(user_id:current_user).count %>
+    </p>
+   
+    <p>
+      <strong>いいねをもらった数:</strong>
+      <% Like.where(user_id:current_user.id).count %>
+      <% Like.where(user_id:current_user.id).count %>
+      <% Like.where(user_id:current_user.id).count %>
+      <%=  %>
+
+    </p>
+
+    <p>
+      <strong>フォロー数:</strong>
+      <%= @user.following.count %>
+    </p>
+
+    <p>
+      <strong>フォロワー:</strong>
+      <%= @user.followers.count %>
+    </p>
