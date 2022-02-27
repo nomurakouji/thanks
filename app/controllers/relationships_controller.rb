@@ -5,6 +5,8 @@ class RelationshipsController < ApplicationController
   def create
     @user = User.find(params[:relationship][:followed_id])
     current_user.follow!(@user)
+    # フォローされたタイミングで、フォローを通知するための変数を作成
+    @user.create_notification_follow!(current_user)
   end
 
   def destroy

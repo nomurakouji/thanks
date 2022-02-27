@@ -5,19 +5,21 @@
       <ul class = "nav">
         <li><p class="sub-title">いいね情報</p></li>
         <li><span><i class="fa-solid fa-heart fa-1x" style="color: deeppink;"></i></span></li>
-      <%# <h4 class="sub-title">いいね情報</h4> %>
-      <%# <span><i class="fa-solid fa-heart fa-2x" style="color: deeppink;"></i></span> %>
+        <li><p class="sub-title">フォロー情報</p></li>
+        <li><span><i class="fa-solid fa-face-grin-wide fa-1x" style="color: orange;"></i></span></li>
       </ul>
       <% if @notifications.exists? %>
         <div class="users-index">
           <%# これはeachと同義。部分パーシャル %>
           <%# <%= render @notifications %> 
-        <% @notifications.each do |notification| %> 
-        <table class="table">
-            <td><%= render partial: 'notification', locals: {notification: notification} %></td>
-        </table>
-        <% end %> 
-        <%= paginate @notifications %>
+          <% @notifications.each do |notification| %> 
+            <table class="table">
+                <%# パーシャルでnotificationファイルを呼び出し %>
+                <%# locals: {部分テンプレート内で使う変数:変数に入れる値} %>
+                <td><%= render partial: 'notification', locals: {notification: notification} %></td>
+            </table>
+          <% end %> 
+          <%= paginate @notifications %>
         </div>
       <% else %>
         <h5 class="notice">現時点ではありません</h5>
