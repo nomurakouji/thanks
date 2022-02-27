@@ -10,6 +10,7 @@ class Post < ApplicationRecord
     temp = Notification.where(["visiter_id = ? and visited_id = ? and post_id = ? and action = ? ", current_user.id, user_id, id, 'like'])
     # いいねされていない（一致するものがない）場合のみ、通知レコードを作成
     if temp.blank?
+    # current_user.active_notifications = visiter_idにcurrent_user.idを代入
     notification = current_user.active_notifications.new(
       post_id: id,
       visited_id: user_id,
