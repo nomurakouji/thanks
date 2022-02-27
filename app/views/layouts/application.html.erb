@@ -23,14 +23,13 @@
 
  <body>
     <div class = "header">
-          
           <% if current_user.try(:admin) %>
         <p class = "header-left">
-             <a class = "header_column"><%= link_to "TOP画面", admin_posts_path %></a>
+            <a class = "header_column"><%= link_to "TOP画面", admin_posts_path %></a>
             <a class = "header_column"><%= link_to "投稿する", new_admin_post_path %></a>
-             <a class = "header_column"><%= link_to "ユーザー管理", admin_users_path %></a>
+            <a class = "header_column"><%= link_to "ユーザー管理", admin_users_path %></a>
             <a class = "header_column"> <%= link_to "部門管理", admin_departments_path %></a>
-             <a class = "header_column"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></a>
+            <a class = "header_column"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></a>
           
         </p>
         <p class = "header-right">
@@ -44,10 +43,10 @@
             <a class = "header_column"><%= link_to "投稿する", new_post_path %></a>
             <a class = "header_column"><%= link_to "ユーザー一覧", users_path %></a>
             <a class = "header_column"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></a>
-    
         </p>
         <p class = "header-right">
-                <%="ログイン中:#{current_user.name}" %>
+          <a><%= link_to "マイページ", user_path(current_user) %></a>
+          <a><%="ログイン中:#{current_user.name}" %></a>
         </p>
         <p class = "header-right-right">
               <%# いいねの既読の有無に応じて、アイコンの表示を変更する。一連のロジック %>

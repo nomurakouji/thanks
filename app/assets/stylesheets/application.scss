@@ -58,17 +58,23 @@ a {
   .header-right {
     text-align: right;
     margin-top: 1rem;
-    padding-right: 1rem;
     // vertical-align: middle;
     display: table-cell;
     color: white;
   }
+
   .header-right-right {
     text-align: left;
     margin-top: 1rem;
     // vertical-align: middle;
     display: table-cell;
   } 
+  .header-right a {
+    color: white;
+    display: inline-block;
+    margin-left: 1rem;
+   }
+   
 
   body {
     width: 100%;

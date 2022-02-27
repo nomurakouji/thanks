@@ -2,12 +2,12 @@
 
 <div class = "box">
   <div class = "box-inner">
-      <ul class = "nav">
-        <li><p class="sub-title">いいね情報</p></li>
-        <li><span><i class="fa-solid fa-heart fa-1x" style="color: deeppink;"></i></span></li>
-        <li><p class="sub-title">フォロー情報</p></li>
-        <li><span><i class="fa-solid fa-face-grin-wide fa-1x" style="color: orange;"></i></span></li>
-      </ul>
+      <div class = "topic">
+          <a>いいね情報</a>
+          <a><span><i class="fa-solid fa-heart fa-1x" style="color: deeppink;"></i></span></a>
+          <a>フォロー情報</a>
+          <a><span><i class="fa-solid fa-face-grin-wide fa-1x" style="color: orange;"></i></span></a>
+      </div>
       <% if @notifications.exists? %>
         <div class="users-index">
           <%# これはeachと同義。部分パーシャル %>

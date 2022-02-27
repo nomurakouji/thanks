@@ -6,34 +6,30 @@
     width: 70%;
     height: 1000%;
     text-align: center;
-    margin: 60px auto 0;
-    border-radius: 4px;
+    margin: 3rem auto 3rem auto ;
+    
+    border-radius: 1rem;
     border: 1px #ddd solid;
 }
 
 .box-inner {
-    padding: 20px 26px;
+    padding: 1rem 1rem;
     text-align: left;
   }
 
 .notice{
     text-align: center;
 }
-p{
+
+.topic {
     text-align: center;
+    vertical-align: middle;
+    padding-bottom: 1rem;
 }
-
-.nav {
-    width: 100px;
-	margin: auto;
-    list-style: none;
-  }
-.nav li {
-    float: left;
-}
-
-.table td {
+.table td{
     padding-top: 1rem;
     padding-bottom: 0;
 }
-
+// .text{
+//     margin-left: 0.5rem;
+// }

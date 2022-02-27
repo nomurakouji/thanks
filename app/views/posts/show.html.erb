@@ -1,8 +1,7 @@
-<%= stylesheet_link_tag 'sessions', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_link_tag 'users', media: 'all', 'data-turbolinks-track': 'reload' %>
 
 <div class = "box">
   <div class = "box-inner">
-
     <p id="notice"><%= notice %></p>
 
     <p>
@@ -34,7 +33,8 @@
       <%= link_to '編集', edit_post_path(@post) %>
       <%= link_to '削除', @post, method: :delete, data: { confirm: 'Are you sure?' } %>
     <% end %>
-    <%= link_to '戻る', posts_path %>
+      <%# 投稿一覧または通知画面に戻したい %>
+      <%= link_to '戻る', :back %>
     
   </div>
 </div>

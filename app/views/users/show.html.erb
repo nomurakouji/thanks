@@ -1,0 +1,54 @@
+<%= stylesheet_link_tag 'users', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+<div class = "box">
+  <div class = "box-inner">
+
+    <%= form_with(model: @user, local: true) do |f| %>
+      <% if @user.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@user.errors.count, "") %> 件のエラーがあります。</h2>
+
+            <ul>
+              <% @user.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+        
+      <p>
+        ユーザーID:<%= @user.id %>
+      </p>
+        
+      <div class="field">
+          <%= f.label :部門 %>
+          <%= f.collection_select :department_id, Department.all, :id, :name %>
+      </div>
+
+      <div class="field">
+          <%= f.label :名前 %>
+          <%= f.text_field :name %>
+      </div>
+        
+        <div>
+          <%= f.label :Eメール %>
+          <%= f.text_area :email %>
+        </div>
+
+        <div class="field">
+          <%= f.label :画像 %>
+          <img src = <%= @user.image.url %> class = "icon_image">
+          <br>
+          <br>
+          <%= f.file_field :image, class: "image" %>
+        </div>
+
+      <br>
+        <div class="actions">
+        <button type="submit" class="btn btn-outline-primary">編集する</button>
+      </div>
+    <% end %>
+    <br>
+    <%= link_to '戻る', users_path %>
+  </div>
+</div>
