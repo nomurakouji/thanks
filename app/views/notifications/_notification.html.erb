@@ -1,10 +1,11 @@
-<%# <% visiter = notification.visiter %>  
-<%# <% post = notification.post %> 
 
-    <div class="user-view clearfix ">
-      <% if notification.action == "Like" %>
-        <%= notification_form(notification) %><%= " (#{time_ago_in_words(notification.created_at)}前) #{notification.visiter.name}さんが" %><%= link_to post_path(post.id) do %><%= "#{notification.post.comment}" %><% end %><%="にいいねしました"%>
-      <% elsif notification.action == "follow" %>
-        <%= notification_form(notification) %><%= " (#{time_ago_in_words(notification.created_at)}前) #{notification.visiter.name}さんがあなたをフォローしました" %>
-      <% end %>
-    </div>
+<% visiter = notification.visiter  %>
+<% post = notification.post %>
+
+<div class="user-view clearfix ">
+  <% if notification.action == "Like" %>
+    <%= notification_form(notification) %><%= " (#{time_ago_in_words(notification.created_at)}前) #{notification.visiter.name}さんが" %><%= link_to post_path(post.id) do %><%= "#{notification.post.comment}" %><% end %><%="にいいねしました"%>
+  <% elsif notification.action == "follow" %>
+    <%= notification_form(notification) %><%= " (#{time_ago_in_words(notification.created_at)}前) #{notification.visiter.name}さんがあなたをフォローしました" %>
+  <% end %>
+</div>
