@@ -3,8 +3,8 @@
 <h1>Thanks!</h1>
 <br>
 <br>
-<a class = "title" >新着順 </a> 
 
+<a class = "title" >新着順 </a> 
 <div class = "content">
   <div class = "card-wrap">
     <div class = "slider">
@@ -21,11 +21,9 @@
               <br>
                 <%= "メッセージ:#{post.comment}" %>
               <br>
-                
                 <div class="likes_buttons_<%= post.id %>">
-                    <%= render partial: 'likes/like', locals: { post: post} %>
-                  </div>
-
+                  <%= render partial: 'likes/like', locals: { post: post} %>
+                </div>
           </div>
     <% end %>
     </div>
@@ -51,12 +49,9 @@
               <br>
               <%= "メッセージ:#{post.comment}" %>
               <br>
-           
-                   <div class="likes_buttons_<%= post.id %>">
-                    <%= render partial: 'likes/like', locals: { post: post} %>
-                  </div>
-
-
+                <div class="likes_buttons_<%= post.id %>">
+                  <%= render partial: 'likes/like', locals: { post: post} %>
+                </div>
           </div>
     <% end %>
     </div>
@@ -81,11 +76,9 @@
               <br>
               <%= "メッセージ:#{post.comment}" %>
               <br>
-               
                 <div class="likes_buttons_<%= post.id %>">
-                    <%= render partial: 'likes/like', locals: { post: post} %>
-                  </div>
-
+                  <%= render partial: 'likes/like', locals: { post: post} %>
+                </div>
           </div>
     <% end %>
     </div>
