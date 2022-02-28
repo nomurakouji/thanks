@@ -1,63 +1,80 @@
-<%= stylesheet_link_tag 'users', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_link_tag 'users_show', media: 'all', 'data-turbolinks-track': 'reload' %>
 
-<div class = "box">
-  <div class = "box-inner">
+<div class = "big-box">
+  <div class = "box">
+    <div class = "box-inner">
 
-    <p>
-      <strong>ユーザーID:</strong>
-      <%= @user.id %> 
-    </p>
+      <h5>「ユーザー情報」</h5>
+      <br>
+      <p>
+        <strong>ユーザーID:</strong>
+        <%= @user.id %> 
+      </p>
 
-    <p>
-      <strong>部門:</strong>
-      <%= @user.department.name %>
-    </p>
+      <p>
+        <strong>部門:</strong>
+        <%= @user.department.name %>
+      </p>
 
-    <p>
-      <strong>宛先:</strong>
-      <%= @user.name %>
-    </p>
+      <p>
+        <strong>氏名:</strong>
+        <%= @user.name %>
+      </p>
 
-    <p>
-      <strong>eメール:</strong>
-      <%= @user.email %>
-    </p>
+      <p>
+        <strong>eメール:</strong>
+        <%= @user.email %>
+      </p>
 
-    <p>
-      <strong>写真:</strong>
-      <img src = <%= @user.image.url%> class = "icon_image">  
-    </p>
-
-
-    <% if current_user.admin == true  || ( current_user.id == @user_id )%>
-      <%= link_to '編集', edit_user_path(@user) %>
-    <% end %>
-      <%# 投稿一覧または通知画面に戻したい %>
-      <%= link_to '戻る', :back %>
-    
+      <p>
+        <strong>写真:</strong>
+        <img src = <%= @user.image.url%> class = "icon_image">  
+      </p>
+      
+      <p class = "links-line">
+      <% if current_user.admin == true  || ( current_user.id == @user.id )%>
+        <a><%= link_to '編集', edit_user_path(@user) %></a>
+        <a><%= link_to '戻る', :back %></a>
+      <% end %>
+      </p>
+       
+      
+    </div>
   </div>
+
+  <div class = "box-instructions">
+    <div class ="box-instructions-inner">
+      
+      <h5>「利用状況」</h5>
+      <br>
+      <p>
+        <strong>投稿数:</strong>
+        <%= Post.where(user_id:current_user).count %>
+      </p>
+    
+      <p>
+        <strong>いいねをもらった数:</strong>
+          <% @likes_count = 0 %>
+          <% @aaa.each do |post| %>
+              <% @likes_count += post.likes.ids.count %>
+          <% end %>
+          <%= @likes_count %> 
+      </p>
+    
+      <p>
+        <strong>フォロー数:</strong>
+        <%= @user.following.count %>
+      </p>
+
+      <p>
+        <strong>フォロワー数:</strong>
+        <%= @user.followers.count %>
+      </p>
+
+      <br>
+      <%= link_to '通知一覧へ', notifications_path %>
+
+    </div>
+  </div>
+   <%# 投稿一覧または通知画面に戻したい %>
 </div>
-
-    <p>
-      <strong>投稿数:</strong>
-      <%= Post.where(user_id:current_user).count %>
-    </p>
-   
-    <p>
-      <strong>いいねをもらった数:</strong>
-      <% Like.where(user_id:current_user.id).count %>
-      <% Like.where(user_id:current_user.id).count %>
-      <% Like.where(user_id:current_user.id).count %>
-      <%=  %>
-
-    </p>
-
-    <p>
-      <strong>フォロー数:</strong>
-      <%= @user.following.count %>
-    </p>
-
-    <p>
-      <strong>フォロワー:</strong>
-      <%= @user.followers.count %>
-    </p>

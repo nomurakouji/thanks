@@ -12,7 +12,10 @@ class UsersController < ApplicationController
   end
 
   def show
-    @post = Post.all
+    # 特定のユーザーが投稿した記事を抽出
+    @aaa = Post.where(user_id: params[:id])
+
+    
   end
 
   def update
@@ -22,16 +25,6 @@ class UsersController < ApplicationController
       else
         render :edit
       end
-      # respond_to do |format|
-      #   if @user.update(user_params)
-      #     format.html { redirect_to users_path(@user), notice: "user was successfully updated." }
-      #     format.json { render :show, status: :ok, location: @user }
-      #   else
-      #     format.html { render :edit, status: :unprocessable_entity }
-      #     format.json { render json: @user.errors, status: :unprocessable_entity }
-      #   end
-      # end
-    # end
   end
   
   def destroy
