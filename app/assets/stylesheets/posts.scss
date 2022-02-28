@@ -1,3 +1,121 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+h1 {
+    text-align: center;
+    margin: 5rem 0 0 0;
+}
+
+// 題名の文字
+.title {
+    margin-left: 5px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.slick-slide img {
+	width: 100%;
+}
+
+.content {
+    // max-height: 500px;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    padding-bottom: 3rem;
+}
+
+.card-wrap {
+    // display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+// slick
+.slider {
+    background-color: aliceblue;
+    visibility: hidden;
+}
+
+.slider img {
+    object-fit:cover;
+    // 写真の高さを指定
+    height:calc(15vh);
+    margin: 0 auto;
+    text-align:center;
+}
+
+.slider.slick-initialized {
+    visibility: visible;
+}
+
+.cardlistTitle {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    margin: 30px 0;
+}
+.card-listText {
+ line-height: 1.6;
+}
+
+.cardlistImage {
+    // width: 100%;
+    // weight: 100%;
+    object-fit: cover;
+}
+
+.icon_image {
+    // width: 100%;
+    // weight: 100%;
+    object-fit:cover;
+}
+
+// 矢印を最前列へ移動
+.slick-next,.slick-prev {
+    z-index: 1;
+}
+// 矢印の位置(ここでは内側へ配置）
+.slick-prev {
+    left: 10px;
+}
+.slick-next {
+    right: 30px;
+}
+// 矢印の大きさ、透過性
+.slick-prev:before, .slick-next:before {
+    font-family: 'slick';
+    font-size: 50px;
+    opacity: .25; 
+    color: black;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+// 各ページの位置設定
+.box {
+    width: 800px;
+    height: 500px;
+    margin: 60px auto 0;
+    border-radius: 4px;
+    border: 1px #ddd solid;
+}
+    
+.box-inner {
+    padding: 20px 26px;
+    text-align: left;
+}
+
+.box-instructions {
+    width: 800px;
+    height: 700px;
+    margin: 60px auto 0;
+}
+
+.box-instructions-inner {
+    padding: 20px 26px;
+    text-align: left;
+    border-radius: 4px;
+    border: 1px #ddd solid;
+}

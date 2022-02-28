@@ -1,0 +1,114 @@
+$fa-font-path: '@fortawesome/fontawesome-free/webfonts';
+@import '@fortawesome/fontawesome-free/scss/fontawesome';
+@import '@fortawesome/fontawesome-free/scss/solid';
+@import '@fortawesome/fontawesome-free/scss/regular';
+@import '@fortawesome/fontawesome-free/scss/brands';
+@import '@fortawesome/fontawesome-free/scss/v4-shims';
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ 
+a {
+  color: black;
+}
+
+ .header {
+   color: black;
+   background-color: lightblue;
+   vertical-align: middle;
+  //  height: 10rem;
+   float: left;
+   display: table;
+   background-image: url('hands-big.2022-02-24 19.50.15.png');
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-position: center center;
+   height: 35vh;
+  }
+
+  .header-left {
+    // vertical-align: middle;
+    // display: table-cell;
+    margin-top: 1rem;
+    text-align: left;
+  }
+
+.header_column {
+  vertical-align: middle;
+  padding-right: 2rem;
+  // インラインブロック要素に変換
+  display: inline-block;
+}
+.header-left a {
+ color: white;
+}
+
+  .header-right {
+    text-align: right;
+    margin-top: 1rem;
+    // vertical-align: middle;
+    display: table-cell;
+    color: white;
+  }
+
+  .header-right-right {
+    text-align: left;
+    margin-top: 1rem;
+    // vertical-align: middle;
+    display: table-cell;
+  } 
+  .header-right a {
+    color: white;
+    display: inline-block;
+    margin-left: 1rem;
+   }
+   
+
+  body {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  footer {
+    text-align: center;
+    padding: 0.8rem;
+    height: 3rem;
+    background: lightblue;
+    margin-top: auto;
+  }
+  
+
+//  kaminari
+.pagination {
+  justify-content: center;
+}
+// ページネーション自体のデザイン
+.pagination>li>a {          
+  border: none;     
+  color: black;   
+}
+
+// 表示しているページ番号のデザイン 
+.pagination>.active>a {     
+  background: grey;     
+  border-radius: 15px;     
+}
+
+// ホバー時のデザイン
+.pagination>li>a:hover {        
+  border-radius: 15px;    
+}

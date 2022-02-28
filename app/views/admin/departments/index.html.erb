@@ -1,23 +1,32 @@
+<%= stylesheet_link_tag 'departments', media: 'all', 'data-turbolinks-track': 'reload' %>
 
-<table>
-  <thead>
-    <tr>
-      <th>部門ID</th>    
-      <th>部門</th>    
-    </tr>
-  </thead>
+<div class = check_buttons ><%= button_to "部門作成",  new_admin_department_path, method: :get  ,class: 'btn btn-secondary'%></div>
 
-  <tbody>
-    <% @departments.each do |department| %>
-      <tr>
-        <td><%= department.id %></td>
-        <td><%= department.name %></td>
-        <td><%= link_to 'Edit', edit_admin_department_path(department.id) %></td> 
-        <td><%= link_to 'Destroy', admin_department_path(department.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class = "box">
+  <div class = "box-inner">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th style="width: 15%">部門ID</th>    
+          <th style="width: 45%">部門</th>
+          <th style="width: 15%"></th>    
+          <th style="width: 15%"></th>    
+        </tr>
+      </thead>
 
-<%= link_to '部門作成',  new_admin_department_path %>
-<%= link_to "管理画面に戻る", dashboard_path %>
+      <tbody>
+        <% @departments.each do |department| %>
+          <tr>
+            <td><%= department.id %></td>
+            <td><%= department.name %></td>
+            <td class = check_buttons><%= link_to "編集",   edit_admin_department_path(department.id), class: 'btn btn-outline-info'%></td>
+            <td class = check_buttons><%= button_to "削除", admin_department_path(department.id), method: :delete, data: { confirm: '本当に削除していいですか？' }, class: 'btn btn-outline-danger' %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <%= paginate @departments %>
+<br>
+
+  </div>
+</div>

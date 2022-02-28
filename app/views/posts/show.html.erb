@@ -1,18 +1,39 @@
-<p id="notice"><%= notice %></p>
+<%= stylesheet_link_tag 'users', media: 'all', 'data-turbolinks-track': 'reload' %>
 
+<div class = "box">
+  <div class = "box-inner">
 
-<p>
-  <strong>Comment:</strong>
-  <%= @post.comment %>
-</p>
+    <p>
+      <strong>日時:</strong>
+      <%= @post.created_at.strftime('%Y/%m/%d/%R') %>
+    </p>
 
-<p>
-  <strong>Image:</strong>
-  <img src = <%= User.find(@post.receiver_id).image.url%> class = "icon_image">  
-</p>
+    <p>
+      <strong>投稿者:</strong>
+      <%= @post.user.name %>
+    </p>
 
- <% if current_user.admin == true  || ( current_user.id == @post.user_id )%>
-  <%= link_to 'Edit', edit_post_path(@post) %>
-  <%= link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?' } %>
-<% end %>
-<%= link_to 'Back', posts_path %>
+    <p>
+      <strong>宛先:</strong>
+      <%= User.find(@post.receiver_id).name %>
+    </p>
+
+    <p>
+      <strong>写真:</strong>
+      <img src = <%= User.find(@post.receiver_id).image.url%> class = "icon_image">  
+    </p>
+
+    <p>
+      <strong>メッセージ:</strong>
+      <%= @post.comment %>
+    </p>
+
+    <% if current_user.admin == true  || ( current_user.id == @post.user_id )%>
+      <%= link_to '編集', edit_post_path(@post) %>
+      <%= link_to '削除', @post, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% end %>
+      <%# 投稿一覧または通知画面に戻したい %>
+      <%= link_to '戻る', :back %>
+    
+  </div>
+</div>

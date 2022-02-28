@@ -3,40 +3,34 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
   def index
     @q = User.ransack(params[:q])
-    @users = @q.result(distinct: true)
-    @d = User.ransack(params[:q])
-    @deparmetn = @d.result(distinct: true)
+    @users = @q.result(distinct: true).page(params[:page]).per(7)
+    # @d = User.ransack(params[:q])
+    # @deparment = @d.result(distinct: true)
   end
 
   def edit
   end
 
   def show
+    # 特定のユーザーが投稿した記事を抽出
+    @aaa = Post.where(user_id: params[:id])
+
+    
   end
 
   def update
     @user = User.find(params[:id])
-    #@department = Department.find(params[:department_id])
     if @user.update(user_params)
         redirect_to users_path, notice: "ユーザーを編集しました！"
       else
         render :edit
       end
-    # respond_to do |format|
-    #   if @user.update(user_params)
-    #     format.html { redirect_to post_url(@user), notice: "User was successfully updated." }
-    #     format.json { render :show, status: :ok, location: @user }
-    #   else
-    #     format.html { render :edit, status: :unprocessable_entity }
-    #     format.json { render json: @user.errors, status: :unprocessable_entity }
-    #   end
-    # end
   end
   
   def destroy
     @user.destroy
     respond_to do |format|
-      format.html { redirect_to users_url, notice: "User was successfully destroyed." }
+      format.html { redirect_to users_url, notice: "ユーザーを削除しました" }
       format.json { head :no_content }
     end
   end
@@ -47,7 +41,7 @@ class UsersController < ApplicationController
   end
   # Only allow a list of trusted parameters through.
   def user_params
-    params.require(:user).permit(:name, :email, :image, :image_cache, :department_id)
+    params.require(:user).permit(:name, :email, :image, :image_cache, :department_id, :password, :password_confirmation)
   end
 
 end

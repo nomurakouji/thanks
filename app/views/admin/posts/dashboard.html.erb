@@ -1,0 +1,24 @@
+<%= stylesheet_link_tag 'sessions', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+<div class = "box">
+  <div class = "box-inner">
+
+    <h1>管理者ページ</h1>
+    <br>
+    <br>
+    
+    <div class="form-group row justify-content-center">
+        <div>
+      <%= link_to admin_posts_path do %> 
+        <button class="btn btn-outline-primary">投稿管理</button>
+      <% end %>
+      <%= link_to admin_users_path do %>
+        <button class="btn btn-outline-success">ユーザー管理</button>
+      <% end %>
+      <%= link_to admin_departments_path do %>
+          <button class="btn btn-outline-info">部門管理</button>
+      <% end %>
+      </div>
+    </div>  
+  </div>
+</div>

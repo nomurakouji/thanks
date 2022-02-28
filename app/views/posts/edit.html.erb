@@ -1,6 +1,9 @@
-<h1>Editing Post</h1>
+<%= stylesheet_link_tag 'sessions', media: 'all', 'data-turbolinks-track': 'reload' %>
 
-<%= render 'form', post: @post %>
+<div class = "box">
+  <div class = "box-inner">
+    <h1>編集</h1>
 
-<%= link_to 'Show', @post %> |
-<%= link_to 'Back', posts_path %>
+    <%= render 'form', post: @post %>
+  </div>
+</div>

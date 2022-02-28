@@ -8,7 +8,7 @@ class DepartmentsController < ApplicationController
     @department = Department.new(department_params)
     respond_to do |format|
         if @department.save
-          format.html { redirect_to departments_url, notice: "department was successfully created." }
+          format.html { redirect_to departments_url, notice: "部門を作成しました" }
           format.json { render :show, status: :created, location: @department }
         else
           format.html { render :new, status: :unprocessable_entity }
@@ -21,7 +21,7 @@ class DepartmentsController < ApplicationController
   end
   
   def index
-    @departments = Department.all
+    @departments = Department
   end
 
   def edit
@@ -31,7 +31,7 @@ class DepartmentsController < ApplicationController
     @department.destroy
 
     respond_to do |format|
-        format.html { redirect_to departments_url, notice: "Department was successfully destroyed." }
+        format.html { redirect_to departments_url, notice: "部門を削除しました" }
         format.json { head :no_content }
       end
   end

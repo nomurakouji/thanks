@@ -1,0 +1,19 @@
+ja:
+  activerecord:
+    models:
+      post: 投稿
+      user: ユーザー
+      department: 部門
+    attributes:
+      post:
+        name: タイトル
+        comment: 内容
+        receiver_id: 宛先
+      user:
+        name: 名前
+        email: メールアドレス
+        password_confirmation: 確認用パスワード
+        image: 画像
+        department_id: 部門
+      department:
+        name: 部門名

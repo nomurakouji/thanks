@@ -1,43 +1,89 @@
-<%# current_userがnilの時にエラーを出さずにadmin権限の確認 %>
-<% if current_user.try(:admin?) %>
-  <h1>Posts_admin </h1>
-<% else %>
-  <h1>Posts</h1>
-<% end %>
+<%= stylesheet_link_tag "posts", :media => "all" %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Date</th> 
-      <th>From</th>    
-      <th>To</th>
-      <th>Image</th>
-      <th>Comment</th>
-    </tr>
-  </thead>
+<h1>Thanks!</h1>
+<br>
+<br>
 
-  <tbody>
-    <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.created_at.strftime('%Y/%m/%d/%R') %></td>
-        <td><%= post.user.name %></td>
-        <td><%= User.find(post.receiver_id).name %></td>    
-        <td><img src = <%= User.find(post.receiver_id).image.url %> class = "icon_image"></td>
-        <td><%= post.comment %></td>
-        <% if current_user.liked_by?(post.id) %>
-          <td><%= link_to 'いいねを外す', destroy_like_path(post), method: :delete %> <%= post.likes.count %></td>
-        <% else %>
-          <td><%= link_to 'いいね', create_like_path(post), method: :post %> <%= post.likes.count %></td>
-        <% end %>
-        <td><%= link_to 'Show', post %></td>
-        <% if current_user.admin == true  || ( current_user.id == post.user_id )%>
-          <td><%= link_to 'Edit', edit_post_path(post) %></td>
-          <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-      </tr>
+<a class = "title" >新着順 </a> 
+<div class = "content">
+  <div class = "card-wrap">
+    <div class = "slider">
+    <% @newcomings.each do |post| %>
+          <div>
+            <p class = "cardlistImage"><%= link_to post_path(post.id) do %>
+              <img src = <%= User.find(post.receiver_id).image.url %> class = "icon_image"><a>
+            <% end %>
+              <%="日時: #{post.created_at.strftime('%Y/%m/%d/%R')}" %>
+              <br>
+              <%= "投稿者:#{post.user.name}" %>
+              <br>
+              <%= "宛先:#{User.find(post.receiver_id).name}" %> 
+              <br>
+                <%= "メッセージ:#{post.comment}" %>
+              <br>
+                <div class="likes_buttons_<%= post.id %>">
+                  <%= render partial: 'likes/like', locals: { post: post} %>
+                </div>
+          </div>
     <% end %>
-  </tbody>
-</table>
+    </div>
+  </div>
+</div>
+
+
+<a class = "title" >いいね数順 </a> 
+<div class = "content">
+  <div class = "card-wrap">
+        <div class = "slider">
+    <% @likes_rankings.each do |post| %>
+          <div>
+            <p class = "cardlistImage"><%= link_to post_path(post.id) do %>
+              <img src = <%= User.find(post.receiver_id).image.url %> class = "icon_image"><a>
+            <% end %>
+              <br>
+              <%="日時: #{post.created_at.strftime('%Y/%m/%d/%R')}" %>
+              <br>
+              <%= "投稿者:#{post.user.name}" %>
+              <br>
+              <%= "宛先:#{User.find(post.receiver_id).name}" %> 
+              <br>
+              <%= "メッセージ:#{post.comment}" %>
+              <br>
+                <div class="likes_buttons_<%= post.id %>">
+                  <%= render partial: 'likes/like', locals: { post: post} %>
+                </div>
+          </div>
+    <% end %>
+    </div>
+  </div>
+</div>
+
+
+<a class = "title" >フォローしている人の投稿 </a> 
+<div class = "content">
+  <div class = "card-wrap">
+        <div class = "slider">
+    <% @follows.each do |post| %>
+          <div>
+            <p class = "cardlistImage"><%= link_to post_path(post.id) do %>
+              <img src = <%= User.find(post.receiver_id).image.url %> class = "icon_image"><a>
+            <% end %>
+              <%="日時: #{post.created_at.strftime('%Y/%m/%d/%R')}" %>
+              <br>
+              <%= "投稿者:#{post.user.name}" %>
+              <br>
+              <%= "宛先:#{User.find(post.receiver_id).name}" %> 
+              <br>
+              <%= "メッセージ:#{post.comment}" %>
+              <br>
+                <div class="likes_buttons_<%= post.id %>">
+                  <%= render partial: 'likes/like', locals: { post: post} %>
+                </div>
+          </div>
+    <% end %>
+    </div>
+  </div>
+</div>
 
 
 

@@ -1,0 +1,35 @@
+// Place all the styles related to the notifications controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.box {
+    width: 70%;
+    height: 1000%;
+    text-align: center;
+    margin: 3rem auto 3rem auto ;
+    
+    border-radius: 1rem;
+    border: 1px #ddd solid;
+}
+
+.box-inner {
+    padding: 1rem 1rem;
+    text-align: left;
+  }
+
+.notice{
+    text-align: center;
+}
+
+.topic {
+    text-align: center;
+    vertical-align: middle;
+    padding-bottom: 1rem;
+}
+.table td{
+    padding-top: 1rem;
+    padding-bottom: 0;
+}
+// .text{
+//     margin-left: 0.5rem;
+// }

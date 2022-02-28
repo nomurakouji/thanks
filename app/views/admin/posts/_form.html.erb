@@ -1,7 +1,7 @@
 <%= form_with(model: post, local: true) do |form| %>
   <% if post.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+      <h2><%= pluralize(post.errors.count, "error") %> 件のエラーがあります。</h2>
 
       <ul>
         <% post.errors.full_messages.each do |message| %>
@@ -12,22 +12,22 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :From %>
+    <%= form.label :投稿者 %>
     <%= @post_name %>
   </div>
 
   <div class="field">
-    <%= form.label :To %>
+    <%= form.label :宛先 %>
     <%= form.collection_select :receiver_id, User.all, :id, :name, include_blank: "選択して下さい" %>
   </div>
 
   <div class="field">
-    <%= form.label :Thanks! %>
+    <%= form.label :メッセージ %>
     <%= form.text_area :comment %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+     <button type="submit" class="btn btn-outline-primary">投稿する</button>
   </div>
 <% end %>
 

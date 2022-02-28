@@ -1,0 +1,60 @@
+.box {
+    width: 350px;
+    height: 450px;
+    margin: 60px auto 0;
+}
+
+.box-inner {
+    padding: 20px 26px;
+    text-align: center;
+    
+  } 
+
+
+// セッション画面
+h2 {
+    text-align: center;
+}
+
+.big-box {
+    // width: 980px;
+    // height: 700px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+}
+.box-instructions {
+    // width: 350px;
+    // height: 450px;
+    // margin: 60px auto 0;
+    vertical-align: middle;
+    // text-align: center;
+    margin: 2rem;
+
+}
+.box-instructions-inner {
+    // padding: 20px 26px;
+    // text-align: left;
+    // border-radius: 4px;
+    border: 1px #ddd solid;
+}
+  
+.box-session {
+    // width: 350px;
+    // height: 450px;
+    // margin: 60px auto 0;
+    margin-top: 5rem;
+    vertical-align: middle;
+    text-align: center;
+    margin: 2rem;
+
+}
+
+.box-session-inner {
+    padding: 20px 26px;
+    // text-align: left;
+    border-radius: 4px;
+    border: 1px #ddd solid;
+}
+

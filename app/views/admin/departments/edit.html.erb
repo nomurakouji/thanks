@@ -1,24 +1,32 @@
-<%= form_with(model: @department, url: admin_department_path, local: true) do |form| %>
-  <% if @department.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@department.errors.count, "error") %> prohibited this department from being saved:</h2>
+<%= stylesheet_link_tag 'departments', media: 'all', 'data-turbolinks-track': 'reload' %>
+<div class = "box">
+  <div class = "box-inner">
+    <%= form_with(model: @department, url: admin_department_path, local: true) do |form| %>
+      <% if @department.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@department.errors.count, "") %> 件のエラーがあります。</h2>
 
-      <ul>
-        <% @department.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+          <ul>
+            <% @department.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_area :name %>
+      <div class="field">
+        <%= form.label :name %>
+        <%= form.text_field :name %>
+      </div>
+      
+      <br>
+      <br>
+      
+      <div class="actions">
+         <button type="submit" class="btn btn-outline-primary">更新する</button>
+      </div>
+    <% end %>
+
+    <%= link_to '戻る', admin_departments_path %>
   </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
-
-<%= link_to '戻る', admin_departments_path %>
+</div>

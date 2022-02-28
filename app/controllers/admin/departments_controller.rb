@@ -9,7 +9,7 @@ class Admin::DepartmentsController < ApplicationController
     @department = Department.new(department_params)
     respond_to do |format|
         if @department.save
-          format.html { redirect_to admin_departments_path, notice: "department was successfully created." }
+          format.html { redirect_to admin_departments_path, notice: "部門を作成しました" }
           format.json { render :show, status: :created, location: @department }
         else
           format.html { render :new, status: :unprocessable_entity }
@@ -22,7 +22,7 @@ class Admin::DepartmentsController < ApplicationController
   end
   
   def index
-    @departments = Department.all
+    @departments = Department.all.all.page(params[:page]).per(7)
   end
 
   def edit
@@ -31,7 +31,7 @@ class Admin::DepartmentsController < ApplicationController
   def update
     respond_to do |format|
       if @department.update(department_params)
-        format.html { redirect_to admin_departments_path(@department), notice: "department was successfully updated." }
+        format.html { redirect_to admin_departments_path(@department), notice: "部門を更新しました" }
         format.json { render :show, status: :ok, location: @department }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -44,7 +44,7 @@ class Admin::DepartmentsController < ApplicationController
     @department.destroy
 
     respond_to do |format|
-        format.html { redirect_to admin_departments_path, notice: "Department was successfully destroyed." }
+        format.html { redirect_to admin_departments_path, notice: "部門を削除しました" }
         format.json { head :no_content }
       end
   end

@@ -12,7 +12,7 @@ class Admin::UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to admin_users_path, notice: "User was successfully created." }
+        format.html { redirect_to admin_users_path, notice: "ユーザーを作成しました" }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -23,9 +23,9 @@ class Admin::UsersController < ApplicationController
   
   def index
     @q = User.ransack(params[:q])
-    @users = @q.result(distinct: true)
+    @users = @q.result(distinct: true).page(params[:page]).per(7)
     @d = User.ransack(params[:q])
-    @deparmetn = @d.result(distinct: true)
+    @deparmemt = @d.result(distinct: true)
     
   end
   
@@ -38,7 +38,7 @@ class Admin::UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to admin_users_path(@user), notice: "user was successfully updated." }
+        format.html { redirect_to admin_users_path(@user), notice: "ユーザーを編集しました" }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -50,7 +50,7 @@ class Admin::UsersController < ApplicationController
   def destroy
     @user.destroy
     respond_to do |format|
-      format.html { redirect_to users_url, notice: "User was successfully destroyed." }
+      format.html { redirect_to users_url, notice: "ユーザーを削除しました" }
       format.json { head :no_content }
     end
   end
