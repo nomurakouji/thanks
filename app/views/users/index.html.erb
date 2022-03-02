@@ -18,7 +18,7 @@
           <th><%= sort_link(@q, :name, "ユーザー名") %></th>
           <th><%= sort_link(@q, :email, "email") %></th>
           <th>フォロー</th>
-          <th></th>
+          <th>チャット</th>
         </tr> 
       <tbody>
         <% @users.each do |user| %>
@@ -33,6 +33,9 @@
             <% if current_user.admin == true  || ( current_user.id == user.id )%>
               <td class = check_buttons><%= button_to "編集", edit_user_path(user),method: :get ,class: 'btn btn-outline-info'%></td>
             <% end %>
+            <% if current_user != user %>
+              <td><%= link_to 'Chat', chat_path(user),method: :get %></td>
+            <% end %> 
           </tr>
         <% end %>
       </tbody>

@@ -1,0 +1,7 @@
+<%# chat_showの<table class="message table">」の、「message」部分 %>
+<%# append：引数に指定した要素を、ある親要素の末尾に追加してくれるメソッド %>
+$('.message').append("<p style='text-align: left;'><%= @chat.message %></p>");
+<%# フォームの値を空にして内容をリセット %>
+$('input[type=text]').val("")
+<%# エラー文表記を作成した場合に、エラー文を空にする %>
+<%# $('error-alert').empty(); %>

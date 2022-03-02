@@ -26,5 +26,8 @@ Rails.application.routes.draw do
   resources :notifications, only: :index
   # フォロー機能
   resources :relationships, only: [:create, :destroy]
+  # チャット機能
+  get 'chat/:id', to: 'chats#show', as: 'chat'
+  resources :chats, only: [:show,:create]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
