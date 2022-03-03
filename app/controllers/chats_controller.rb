@@ -17,13 +17,14 @@ class ChatsController < ApplicationController
       room = user_room.room
     end
     # roomに紐づくchatsテーブルのレコードを@chatsに格納（チャット履歴(@chats)の取得）
-    @chats = room.chats
+    @chats = room.chats.page(params[:page]).per(10)
     # form_withでチャットを送信する際に必要な空のインスタンス（新規投稿用の空インスタンス(@chat)作成）
     @chat = Chat.new(room_id: room.id)
     # 既読と未読を判別するロジック
     if @chats.last
       @chats.where(user_id: current_user.id).update_all(read: true)
     end
+    # chatの通知
     # ログインユーザーの全てのチャットを配列で抜き出す
     active_chat = current_user.chats.pluck(:id)    
     # 通知レコードの中で、showの相手、かつ、チャットが存在するものを抜き出す

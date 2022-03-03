@@ -1,6 +1,8 @@
+<%= stylesheet_link_tag 'chats', media: 'all', 'data-turbolinks-track': 'reload' %>
+
 <div class="container">
-    <div class="row">
-        <div class="col-xs-6">
+    <%# <div class="row"> %>
+    <div class = "chat-area">
             <h2>CHATルーム <%= @user.name %></h2>
 
             <table class="message table">
@@ -11,7 +13,7 @@
                 </tr>
                 </thead>
                 <% @chats.all.order(created_at: :asc).each do |chat| %>
-                <% if chat.user_id == current_user.id %>
+                <% if chat.user_id != current_user.id %>
                 <tbody>
                     <tr>
                     <th>
@@ -34,14 +36,18 @@
                 <% end %>
                 <% end %>
             </table>
+            <div class = "under-part">
+            <%= paginate @chats %>
 
-            <%= form_with model: @chat, remote: true do |f| %>
-                <%= f.text_field :message %>
-                <%= f.hidden_field :room_id %>
-                <%= f.hidden_field :user_id, :value => @user.id %>
-                <%= f.submit "送信", class:"btn btn-sm btn-success chat-btn" %>
-            <% end %>
-            <%= link_to '戻る', :back %>
-        </div>
+                <div class="transfer">            
+                    <%= form_with model: @chat, remote: true do |f| %>
+                        <%= f.text_field :message %>
+                        <%= f.hidden_field :room_id %>
+                        <%= f.hidden_field :user_id, :value => @user.id %>
+                        <%= f.submit "送信", class:"btn btn-outline-primary" %>
+                    <% end %>
+                </div>
+            </div>
     </div>
+    <%# </div> %>
 </div>
