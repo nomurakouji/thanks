@@ -37,11 +37,13 @@ class ChatsController < ApplicationController
         format.js { render :errors } 
       end
     end
+    # チャットが投稿されたときに通知レコードを作成する
+    @chat.chat_by(current_user)
   end
 
   private
 
   def chat_params
-    params.require(:chat).permit(:message, :room_id).merge(user_id: current_user.id)
+    params.require(:chat).permit(:message, :room_id, :user_id)#.merge(user_id: current_user.id)
   end
 end
