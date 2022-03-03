@@ -24,6 +24,15 @@ class ChatsController < ApplicationController
     if @chats.last
       @chats.where(user_id: current_user.id).update_all(read: true)
     end
+    # ログインユーザーの全てのチャットを配列で抜き出す
+    active_chat = current_user.chats.pluck(:id)    
+    # 通知レコードの中で、showの相手、かつ、チャットが存在するものを抜き出す
+    @notifications_chat = Notification.where(visiter_id:@user.id, chat_id:active_chat)
+    # 上記で抜き出した中で、actionがchat、かつ、checkedがfalseのものを抜き出す
+    @notifications_chat.where(action: "chat",checked: false).each do |notification|
+    # update_attributeメソッド: レコードの一つのカラムを変更できる
+    notification.update_attributes(checked: true)
+    end
   end
 
   def create
