@@ -4,7 +4,7 @@ class CreateChats < ActiveRecord::Migration[6.0]
       t.integer :user_id
       t.integer :room_id
       t.text :message
-
+      t.boolean :read,	default: false
       t.timestamps
     end
   end

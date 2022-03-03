@@ -6,16 +6,18 @@
             <table class="message table">
                 <thead>
                 <tr>
-                    <th style="text-align: left; font-size: 20px;"><%= current_user.name %></th>
-                    <th style="text-align: right; font-size: 20px;"><%= @user.name %></th>
+                    <th style="text-align: left; font-size: 1rem;"><%= current_user.name %></th>
+                    <th style="text-align: right; font-size: 1rem;"><%= @user.name %></th>
                 </tr>
                 </thead>
-                <% @chats.each do |chat| %>
+                <% @chats.all.order(created_at: :asc).each do |chat| %>
                 <% if chat.user_id == current_user.id %>
                 <tbody>
                     <tr>
                     <th>
                         <p style="text-align: left;"><%= chat.message %></p>
+                        <div class="times"><%= chat.message_time %></div>
+                          <%= chat.read ? '既読' : '未読' %>
                     </th>
                     <th></th>
                     </tr>
@@ -24,6 +26,8 @@
                     <th></th>
                     <th>
                         <p style="text-align: right;"><%= chat.message %></p>
+                        <div class="times"><%= chat.message_time %></div>
+                        <%= chat.read ? '既読' : '未読' %>
                     </th>
                     </tr>
                 </tbody>

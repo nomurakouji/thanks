@@ -4,7 +4,6 @@ class ChatsController < ApplicationController
     # user_roomsテーブルのuser_idが主のレコードのroom_idを配列で取得
     rooms = current_user.user_rooms.pluck(:room_id)
     user_room = UserRoom.find_by(user_id: @user.id, room_id: rooms)
-
     # user_roomでルームを取得できなかった（主とゲストのチャットが存在しない）場合の処理
     room = nil
     if user_room.nil?
@@ -21,6 +20,10 @@ class ChatsController < ApplicationController
     @chats = room.chats
     # form_withでチャットを送信する際に必要な空のインスタンス（新規投稿用の空インスタンス(@chat)作成）
     @chat = Chat.new(room_id: room.id)
+    # 既読と未読を判別するロジック
+    if @chats.last
+      @chats.where.not(user_id: current_user.id).update_all(read: true)
+    end
   end
 
   def create
