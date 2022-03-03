@@ -1,7 +1,8 @@
 
 <% visiter = notification.visiter  %>
+<% visited = notification.visited  %>
 <% post = notification.post %>
-<% chat = notification.chat %>
+
 
 <div class="user-view clearfix ">
   <% if notification.action == "Like" %>
@@ -9,6 +10,6 @@
   <% elsif notification.action == "follow" %>
     <%= notification_form(notification) %><%= " (#{time_ago_in_words(notification.created_at)}前) #{notification.visiter.name}さんがあなたをフォローしました" %>
   <% elsif notification.action == "chat" %>
-    <%= notification_form(notification) %><%= " (#{time_ago_in_words(notification.created_at)}前) #{notification.visiter.name}さんがあなたにチャットをしました" %>
+    <%= notification_form(notification) %><%= " (#{time_ago_in_words(notification.created_at)}前) #{notification.visited.name}さんがあなたにチャットをしました" %>
   <% end %>
 </div>

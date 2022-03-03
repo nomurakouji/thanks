@@ -27,7 +27,8 @@ class ChatsController < ApplicationController
   end
 
   def create
-    @chat = current_user.chats.new(chat_params)
+    # @chat = current_user.chats.new(chat_params)
+    @chat = Chat.new(chat_params)
     respond_to do |format|
       if @chat.save
         format.html { redirect_to chat_path(@chat) } # HTMLで返す場合、showアクションを実行し詳細ページを表示
@@ -37,6 +38,7 @@ class ChatsController < ApplicationController
         format.js { render :errors } 
       end
     end
+    # @user = User.find(params[:id])
     # チャットが投稿されたときに通知レコードを作成する
     @chat.chat_by(current_user)
   end

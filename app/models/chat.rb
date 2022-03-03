@@ -18,6 +18,10 @@ class Chat < ApplicationRecord
       visited_id: user_id,
       action: "chat"
     )
+    # 自分の投稿に対するいいねの場合は、通知済みとする
+    if notification.visiter_id == current_user.id
+      notification.checked = true
+    end
     # norificationの値が有効であればnotification変数の値をsave
     notification.save if notification.valid?
     end
