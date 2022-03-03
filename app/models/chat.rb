@@ -9,19 +9,16 @@ class Chat < ApplicationRecord
 
   def chat_by(current_user)
     # すでに「いいね」されているか検索（実際はデータベースから一致する条件のものを全て検索している）
-    temp = Notification.where(["visiter_id = ? and visited_id = ? and chat_id = ? and action = ? ", current_user.id, user_id, id, 'chat'])
+    temp = Notification.where(["visiter_id = ? and visited_id = ? and chat_id = ? and action = ? and checked = ?", current_user.id, user_id, id, 'chat',false])
     # いいねされていない（一致するものがない）場合のみ、通知レコードを作成
     if temp.blank?
     # current_user.active_notifications = visiter_idにcurrent_user.idを代入
     notification = current_user.active_notifications.new(
       chat_id: id,
       visited_id: user_id,
-      action: "chat"
+      action: "chat",
+      checked: false
     )
-    # 自分の投稿に対するいいねの場合は、通知済みとする
-    if notification.visiter_id == current_user.id
-      notification.checked = true
-    end
     # norificationの値が有効であればnotification変数の値をsave
     notification.save if notification.valid?
     end

@@ -22,7 +22,7 @@ class ChatsController < ApplicationController
     @chat = Chat.new(room_id: room.id)
     # 既読と未読を判別するロジック
     if @chats.last
-      @chats.where.not(user_id: current_user.id).update_all(read: true)
+      @chats.where(user_id: current_user.id).update_all(read: true)
     end
   end
 
