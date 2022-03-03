@@ -15,8 +15,8 @@
                 <tbody>
                     <tr>
                     <th>
-                        <p style="text-align: left;"><%= chat.message %></p>
                         <div class="times"><%= chat.message_time %></div>
+                        <p style="text-align: left;"><%= chat.message %></p>
                           <%= chat.read ? '既読' : '未読' %>
                     </th>
                     <th></th>
@@ -25,8 +25,8 @@
                     <tr>
                     <th></th>
                     <th>
-                        <p style="text-align: right;"><%= chat.message %></p>
                         <div class="times"><%= chat.message_time %></div>
+                        <p style="text-align: right;"><%= chat.message %></p>
                         <%= chat.read ? '既読' : '未読' %>
                     </th>
                     </tr>
