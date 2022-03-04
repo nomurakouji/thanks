@@ -3,6 +3,7 @@
 <%# append：引数に指定した要素を、ある親要素の末尾に追加してくれるメソッド %>
 $('.message').append("<p style='text-align: left;'><%= @chat.message_time %></p>");
 $('.message').append("<p style='text-align: left;'><%= @chat.message %></p>");
+$('.message').append("<%= current_user.image.url %>");
 $('.message').append("<%= "未読" %>");
 <%# フォームの値を空にして内容をリセット %>
 $('input[type=text]').val("")
