@@ -1,8 +1,8 @@
 <%= stylesheet_link_tag 'chats', media: 'all', 'data-turbolinks-track': 'reload' %>
 
 <div class="container">
-    <%# <div class="row"> %>
     <div class = "chat-area">
+      <h5><%= @user.name %>さんとのチャット</h5>
       <table class="message">
         <% @chats.all.order(created_at: :asc).each do |chat| %> 
 
@@ -27,5 +27,4 @@
                 </div>
             </div>
     </div>
-    <%# </div> %>
 </div>
