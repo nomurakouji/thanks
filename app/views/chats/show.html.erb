@@ -3,37 +3,17 @@
 <div class="container">
     <%# <div class="row"> %>
     <div class = "chat-area">
+      <table class="message">
+        <% @chats.all.order(created_at: :asc).each do |chat| %> 
 
-            <table class="message">
-                <% @chats.all.order(created_at: :asc).each do |chat| %>
-                <% if chat.user_id != current_user.id %>
-                <tbody>
-                    <tr>
-                    <th>
-                        <div class="left-time"><%= chat.message_time %></div>
-                        <%# 幅からはみ出さない仕様 %>
-                        <img src = <%= current_user.image.url %> class = "icon-image-left"><a>
-                        <div class ="left-chat"><%= chat.message %></div>
-                        <div class ="left-read"><%= chat.read ? '既読' : '未読' %></div>
-                    </th>
-                    <th></th>
-                    </tr>
-                <% else %>
-                    <tr>
-                    <th></th>
-                    <th>
-                        <div class="right-time"><%= chat.message_time %></div>
-                        <div class = "right-box">
-                          <a class ="right-chat"><%= chat.message %></a>
-                          <img src = <%= @user.image.url %> class = "icon-image-right"><a>
-                          <div class ="right-read"><%= chat.read ? '既読' : '未読' %>
-                        </div>
-                    </th>
-                    </tr>
-                </tbody>
-                <% end %>
-                <% end %>
-            </table>
+                <div>
+                  <%= render partial: 'chats/chat', locals: { chat: chat} %>
+                </div>
+
+        <% end %>
+      </table>
+
+
             <div class = "under-part">
             <%= paginate @chats %>
 

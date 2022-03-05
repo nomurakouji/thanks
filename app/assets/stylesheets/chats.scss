@@ -84,7 +84,6 @@ body{
     text-align: right;
 }
 .right-chat{
-    // display: table-cell;
     position: relative;/*擬似要素の位置指定の基準に*/
     display: inline-block;/*横幅を成り行きに*/
     max-width: 65%;/*フキダシの最大幅*/
@@ -95,7 +94,6 @@ body{
     overflow-wrap: break-word;/*英文がフキダシから溢れないように*/
 }
 .right-chat::after{
-    // display: table-cell;
     position: absolute;/*親要素に対して絶定配置*/
     content: "";/*追加する中身はなし*/
     display: block;/*ブロックレベル要素に*/
