@@ -23,7 +23,7 @@
 
       <div class="field">
         <%= form.label :宛先 %>
-        <%= form.collection_select :receiver_id, User.all, :id, :name, include_blank: "選択して下さい" %>
+        <%= form.collection_select :receiver_id,  User.where.not(id:current_user), :id, :name, include_blank: "選択して下さい" %>
       </div>
 
       <div class="field">
