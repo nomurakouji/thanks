@@ -2,6 +2,7 @@ class Chat < ApplicationRecord
   belongs_to :user
   belongs_to :room
   has_many :notifications, dependent: :destroy
+  validates :message,presence: true,length: {maximum: 50}
   # 投稿時間の表示
   def message_time
     created_at.strftime("%Y-%m-%d(%a) %H:%M")
