@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -18,7 +19,8 @@
     <%# slickの使用 %>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
-
+    <%# cssの非同期化 %>
+    <%# <link rel="preload" as="style" href="chats.scss" onload="this.rel='stylesheet'"> %>
   </head>
 
  <body>
@@ -26,7 +28,6 @@
           <% if current_user.try(:admin) %>
         <p class = "header-left">
             <a class = "header_column"><%= link_to "TOP画面", admin_posts_path %></a>
-            <a class = "header_column"><%= link_to "投稿する", new_admin_post_path %></a>
             <a class = "header_column"><%= link_to "ユーザー管理", admin_users_path %></a>
             <a class = "header_column"> <%= link_to "部門管理", admin_departments_path %></a>
             <a class = "header_column"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></a>
@@ -40,7 +41,7 @@
           <% elsif user_signed_in? %>
         <p class = "header-left">
             <a class = "header_column"><%= link_to "TOP画面", posts_path %></a>
-            <a class = "header_column"><%= link_to "投稿する", new_post_path %></a>
+            <a class = "header_column"><%= link_to "投稿", new_post_path %></a>
             <a class = "header_column"><%= link_to "ユーザー一覧", users_path %></a>
             <a class = "header_column"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></a>
         </p>

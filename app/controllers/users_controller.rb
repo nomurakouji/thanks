@@ -14,8 +14,6 @@ class UsersController < ApplicationController
   def show
     # 特定のユーザーが投稿した記事を抽出
     @aaa = Post.where(user_id: params[:id])
-
-    
   end
 
   def update

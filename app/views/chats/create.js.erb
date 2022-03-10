@@ -1,0 +1,13 @@
+
+$('.message').append("<%= j(render partial: 'chats/chat', locals: { chat: @chat }) %>");
+
+<%# chat_showの<table class="message">」 %>
+<%# append：引数に指定した要素を、ある親要素の末尾に追加してくれるメソッド %>
+
+<%# フォームの値を空にして内容をリセット %>
+$('input[type=text]').val("")
+
+<%# 参考 %>
+<%# エラー文表記を作成した場合に、エラー文を空にする %>
+<%# $('error-alert').empty(); %>
+

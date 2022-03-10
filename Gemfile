@@ -82,3 +82,5 @@ gem 'rexml'
 gem 'jquery-rails'
 # ページネーション
 gem 'kaminari'
+# 日本語化
+gem 'rails-i18n'

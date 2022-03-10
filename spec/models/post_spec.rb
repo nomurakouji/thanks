@@ -9,20 +9,26 @@ RSpec.describe Post, type: :model do
     end
     context 'commentにnilがある場合' do
         it 'バリデーションにかかる' do
-          user = FactoryBot.build(:post,comment: nil)
-          user.valid?
+          post = FactoryBot.build(:post,comment: nil)
+          post.valid?
         end    
+    end
+    context 'commentが51文字以上ある場合' do
+      it 'バリデーションにかかる' do
+        post = FactoryBot.build(:post,comment: "123456789012345678901234567890123456789012345678901234567890")
+        post.valid?
+      end    
     end
     context 'receiver_idにnilがある場合' do
         it 'バリデーションにかかる' do
-          user = FactoryBot.build(:post,receiver_id: nil)
-          user.valid?
+          post = FactoryBot.build(:post,receiver_id: nil)
+          post.valid?
         end    
     end
     context 'user_idにnilがある場合' do
         it 'バリデーションにかかる' do
-          user = FactoryBot.build(:post,user_id: nil)
-          user.valid?
+          post = FactoryBot.build(:post,user_id: nil)
+          post.valid?
         end    
       end
   end

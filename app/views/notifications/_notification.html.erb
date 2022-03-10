@@ -2,10 +2,19 @@
 <% visiter = notification.visiter  %>
 <% post = notification.post %>
 
+
+
 <div class="user-view clearfix ">
   <% if notification.action == "Like" %>
-    <%= notification_form(notification) %><%= " (#{time_ago_in_words(notification.created_at)}前) #{notification.visiter.name}さんが" %><%= link_to post_path(post.id) do %><%= "#{notification.post.comment}" %><% end %><%="にいいねしました"%>
+    <%= notification_form(notification) %><%= " (#{time_ago_in_words(notification.created_at)}前)"%><span><i class="fa-solid fa-heart fa-1x" style="color: deeppink;"></i></span><%=" #{notification.visiter.name}さんが" %><%= link_to post_path(post.id) do %><%= "#{notification.post.comment}" %><% end %><%="にいいねしました"%>
   <% elsif notification.action == "follow" %>
-    <%= notification_form(notification) %><%= " (#{time_ago_in_words(notification.created_at)}前) #{notification.visiter.name}さんがあなたをフォローしました" %>
+    <%= notification_form(notification) %><%= " (#{time_ago_in_words(notification.created_at)}前)"%><span><i class="fa-solid fa-face-grin-wide fa-1x" style="color: orange;"></i></span><%= " #{notification.visiter.name}さんがあなたをフォローしました" %>
+  <% elsif notification.action == "chat" %>
+    <%= notification_form(notification) %><%= " (#{time_ago_in_words(notification.created_at)}前)"%><span><i class="fa-solid fa-envelope fa-1x" style="color: skyblue;"></i></span><%= " "%><%= link_to chat_path(visiter) do %><%= "#{notification.visiter.name}さん" %><% end %><%="があなたにチャットしました"%>
+    <% if notification.checked == true %>
+      <%= "(既読)" %>
+    <% else %>
+      <a class = "title"> (未読) </a>
+    <% end %>
   <% end %>
 </div>

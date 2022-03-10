@@ -1,0 +1,126 @@
+// Place all the styles related to the chats controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+body{
+    background-color: white;
+}
+.container{
+    max-width: 70%;
+    max-height: 100%;
+    // 文字の自動改行
+}
+.chat-area {
+  background-color: skyblue;
+}
+h5{
+    text-align: center;
+}
+.under-part{
+    margin-top: 1rem;
+    background-color: white;
+}
+.transfer{
+    text-align: center;
+    margin-bottom: 1rem;
+}
+.message {
+    overflow-wrap:  break-word;
+}
+.message th{
+    font-weight: normal ;
+    width: 25%;
+}
+.icon-image-left{
+    border-radius:50%;
+    width: 25%;
+    height: 25%;
+    object-fit:cover;
+    
+}
+.left-time{
+    font-size: 0.5rem;
+    text-align: left;
+}
+.left-read{
+    color: grey;
+    font-size: 0.5rem;
+    text-align: left;
+}
+.left-chat{
+    position: relative;
+    display: inline-block;/*横幅を成り行きに*/
+    max-width: 70%;
+    margin-left: 0.5rem;
+    padding: 9px 14px;
+    background: steelblue;
+    border-radius: 19px;/*角丸*/
+    overflow-wrap: break-word;/*英文がフキダシから溢れないように*/
+    text-align: left;
+}
+.left-chat::after{
+    position: absolute;
+    content: "";/*追加する中身はなし*/
+    display: block;/*ブロックレベル要素に*/
+    left: -6px;
+    bottom: 0;
+    width: 17px;
+    height: 19px;
+    background: skyblue;
+    border-radius: 0px 0  17px 0px/ 0px 0 13px 0;/*角丸*/
+    box-shadow: -14px 2px 0 -3px steelblue inset;/*影*/
+}
+.icon-image-right{
+    border-radius:50%;
+    width: 25%;
+    height: 25%;
+    object-fit:cover;
+    display: inline-block;
+}
+.right-time{
+    font-size: 0.5rem;
+    text-align: right;
+}
+.right-read{
+    color: grey;
+    font-size: 0.5rem;
+    text-align: right;
+}
+.right-chat{
+    position: relative;
+    display: inline-block;/*横幅を成り行きに*/
+    max-width: 70%;
+    margin-right: 0.5rem;
+    padding: 9px 14px;
+    background: steelblue;
+    border-radius: 19px;/*角丸*/
+    overflow-wrap: break-word;/*英文がフキダシから溢れないように*/
+    text-align: left;
+}
+.right-chat::after{
+    position: absolute;
+    content: "";/*追加する中身はなし*/
+    display: block;/*ブロックレベル要素に*/
+    right: -6px;
+    bottom: 0;
+    width: 17px;
+    height: 19px;
+    background: skyblue;
+    border-radius: 0px 0  0 17px/ 0px 0 0 13px; /*角丸*/
+    box-shadow: 14px 2px 0 -3px steelblue inset;/*影*/
+}
+.right-box{
+    text-align: right;
+}
+
+.img-box {
+    background-image:url(current_user.image.url);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center,center;
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%;
+    border-radius: 50%;
+  }
