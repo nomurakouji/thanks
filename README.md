@@ -12,6 +12,7 @@ $ cd thanks
 $ bundle install
 $ rails db:create 
 $ rails db:migrate
+$ rails db:seed
 $ rails s
 ```
 
@@ -27,9 +28,7 @@ https://cacoo.com/diagrams/zWAFO1jlH4k4lx5Q/49532
 
 ## 画面遷移図
 https://cacoo.com/diagrams/zWAFO1jlH4k4lx5Q/B7053
-<img width="985" alt="スクリーンショット 2022-02-03 11 44 07" src="https://user-images.githubusercontent.com/93464641/152272913-18d00edf-4398-482e-bb00-478ac1f07d5f.png">
 
 ## ER図
 https://app.diagrams.net/#G1fMX2qUYJ9_Izqx1GvEoZyoL9tZKuBnqA
-<img width="608" alt="er-picture.png" src="https://user-images.githubusercontent.com/93464641/152276671-cc745f1b-2df3-4715-8933-d3a721695c2e.png">
 
