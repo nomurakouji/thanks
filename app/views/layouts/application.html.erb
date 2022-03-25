@@ -42,6 +42,7 @@
         <p class = "header-left">
             <a class = "header_column"><%= link_to "TOP画面", posts_path %></a>
             <a class = "header_column"><%= link_to "投稿", new_post_path %></a>
+            <a class = "header_column"><%= link_to "下書き", draft_path %></a>
             <a class = "header_column"><%= link_to "ユーザー一覧", users_path %></a>
             <a class = "header_column"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></a>
         </p>

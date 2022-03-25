@@ -1,0 +1,30 @@
+<%= stylesheet_link_tag "posts", :media => "all" %>
+
+<h1>Thanks!</h1>
+<br>
+<br>
+
+<a class = "title" >下書き </a> 
+<div class = "content">
+  <div class = "card-wrap">
+    <div class = "slider">
+    <% @posts.each do |post| %>
+        <% if current_user.admin == true  || ( current_user.id == post.user_id )%>
+          <div>
+            <p class = "cardlistImage"><%= link_to draft_show_path(post.id) do %>
+              <img src = <%= User.find(post.receiver_id).image.url %> class = "icon_image"><a>
+            <% end %>
+              <%="日時: #{post.created_at.strftime('%Y/%m/%d/%R')}" %>
+              <br>
+              <%= "投稿者:#{post.user.name}" %>
+              <br>
+              <%= "宛先:#{User.find(post.receiver_id).name}" %> 
+              <br>
+                <%= "メッセージ:#{post.comment}" %>
+              <br>
+          </div>
+        <% end %>
+    <% end %>
+    </div>
+  </div>
+</div>

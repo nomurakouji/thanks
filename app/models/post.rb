@@ -3,10 +3,14 @@ class Post < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :like_users, through: :likes, source: :user
   has_many :notifications, dependent: :destroy
-  validates :comment, 
-    presence: true,
-    length: {maximum: 50}
-  validates :receiver_id, presence: true
+  # with_options => バリデーション内容が共通の時
+  # on: :publicize => context: :publicizeの時だけバリデーション
+  with_options presence: true, on: :publicize do
+  validates :comment
+  validates :receiver_id
+  end
+  validates :comment, length: {maximum: 50}, on: :publicize
+
   def create_notification_by(current_user)
     # すでに「いいね」されているか検索（実際はデータベースから一致する条件のものを全て検索している）
     temp = Notification.where(["visiter_id = ? and visited_id = ? and post_id = ? and action = ? ", current_user.id, user_id, id, 'like'])
