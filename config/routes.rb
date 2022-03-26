@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   get 'relationships/create'
   get 'relationships/destroy'
   root 'posts#index'
+  # 下書きの一覧画面
   get :draft, to: 'posts#draft'
-  get :draft_show, to: 'posts#draft_show'
   # gemのdevise
   devise_for :users
   # 管理者機能

@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: %i[ show edit update destroy draft_show ]
+  before_action :set_post, only: %i[ show edit update destroy draft_edit ]
   before_action :authenticate_user!
 
   # GET /posts or /posts.json
@@ -20,9 +20,6 @@ class PostsController < ApplicationController
 
   def draft
     @posts = Post.order(created_at: :desc).where(is_draft: true)
-  end
-
-  def draft_show
   end
 
   # GET /posts/new
@@ -56,15 +53,20 @@ class PostsController < ApplicationController
 
   # PATCH/PUT /posts/1 or /posts/1.json
   def update
-    respond_to do |format|
-      if @post.update(post_params)
-        format.html { redirect_to post_url(@post), notice: "投稿を編集しました" }
-        format.json { render :show, status: :ok, location: @post }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
+    @post = Post.find(params[:id])
+      if params[:commit] == "感謝を投稿"
+        @post.attributes = post_params.merge(is_draft: false)
+        if @post.save(context: :publicize)
+          redirect_to post_url(@post.id), notice: "公開しました"
+        end
+      elsif params[:commit] == "下書きを更新"
+        @post.update(post_params)
+          redirect_to draft_url(@post.id), notice: "更新しました"
+      elsif params[:commit] == "感謝を更新"
+        if @post.update(post_params)
+          redirect_to post_url(@post.id), notice: "下書きを更新しました"
+        end
       end
-    end
   end
 
   # DELETE /posts/1 or /posts/1.json
