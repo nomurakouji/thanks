@@ -19,7 +19,43 @@ $fa-font-path: '@fortawesome/fontawesome-free/webfonts';
  *= require_tree .
  *= require_self
  */
+
  
+// 投稿欄の動的表示
+.gnav {
+  display: flex;
+
+}
+.gnav li {
+  list-style: none;
+  color: white;
+  text-align: center;
+  margin-right: 0.5rem;
+}
+.gnav li a {
+  color: white;
+  // margin-right: 0.5rem;
+}
+.gnav a {
+  color: white;
+}
+.gnav li li {
+  // 表示欄からはみ出た要素を隠す
+  overflow: hidden;
+  height: 0;
+  // 0.5秒でアニメーション表示
+  transition: .5s;
+}
+// hover => マウスオーバーした際の挙動を指定 
+.gnav li:hover > ul > li {
+  // 表示する場所の大きさ
+  height: 2rem;
+  // 表示欄の表示方法は初期値のまま
+  overflow: visible;
+  margin-top: 0.5rem;
+}
+
+
 a {
   color: black;
 }
@@ -67,6 +103,7 @@ a {
     text-align: left;
     margin-top: 1rem;
     display: table-cell;
+    padding-top: 1rem;
   } 
   .header-right a {
     color: white;
