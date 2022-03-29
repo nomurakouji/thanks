@@ -16,6 +16,9 @@ $ rails db:seed
 $ rails s
 ```
 
+## 補足
+ログイン時のパスワードは全て「password」
+
 ## カタログ設計
 https://docs.google.com/spreadsheets/d/1J0m85uAoclK1oWRukrjUfAi9Qfbl4Wh2kRWjiu51MQA/edit?usp=sharing
 
