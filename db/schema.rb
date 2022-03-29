@@ -10,12 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_02_134838) do
+ActiveRecord::Schema.define(version: 2022_03_25_042515) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "chats", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "room_id"
+    t.text "message"
+    t.boolean "read", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "conversations", force: :cascade do |t|
     t.integer "user_id"
     t.integer "room_id"
     t.text "message"
@@ -39,6 +48,11 @@ ActiveRecord::Schema.define(version: 2022_03_02_134838) do
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
+  create_table "messages", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "notifications", force: :cascade do |t|
     t.integer "visiter_id"
     t.integer "visited_id"
@@ -59,6 +73,7 @@ ActiveRecord::Schema.define(version: 2022_03_02_134838) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id", null: false
     t.bigint "receiver_id"
+    t.boolean "is_draft", default: false, null: false
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 

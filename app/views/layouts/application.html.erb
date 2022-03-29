@@ -27,6 +27,7 @@
     <div class = "header">
           <% if current_user.try(:admin) %>
         <p class = "header-left">
+            
             <a class = "header_column"><%= link_to "TOP画面", admin_posts_path %></a>
             <a class = "header_column"><%= link_to "ユーザー管理", admin_users_path %></a>
             <a class = "header_column"> <%= link_to "部門管理", admin_departments_path %></a>
@@ -37,14 +38,20 @@
             <%= "ログイン中:#{current_user.name}" %>
         </p>
 
-    
+
           <% elsif user_signed_in? %>
-        <p class = "header-left">
-            <a class = "header_column"><%= link_to "TOP画面", posts_path %></a>
-            <a class = "header_column"><%= link_to "投稿", new_post_path %></a>
-            <a class = "header_column"><%= link_to "ユーザー一覧", users_path %></a>
-            <a class = "header_column"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></a>
-        </p>
+            <ul class = "gnav">
+                <li><a href = ""><%= link_to "TOP画面", posts_path %></a></li>
+                <li>
+                  <a href = "">投稿画面</a>
+                    <ul>
+                      <li><a href = ""><%= link_to "投稿", new_post_path %></a></li>
+                      <li><a href = ""><%= link_to "下書き", draft_path %></a></li>
+                    </ul>
+                </li>
+                <li><a href = ""><%= link_to "ユーザー一覧", users_path %></a></li>
+                <li><a href = ""><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></a></li>
+            </ul>
         <p class = "header-right">
           <a><%= link_to "マイページ", user_path(current_user) %></a>
           <a><%="ログイン中:#{current_user.name}" %></a>

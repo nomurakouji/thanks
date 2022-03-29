@@ -4,6 +4,41 @@
   <div class = "box-inner">
     <h1>投稿する</h1>
 
-    <%= render 'form', post: @post %>
+    <%= form_with(model: @post, local: true) do |form| %>
+      <% if @post.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= @post.errors.count%> 件のエラーがあります。</h2>
+          <ul>
+
+            <% @post.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="field">
+        <%= form.label :投稿者 %>
+        <%= @post_name %>
+      </div>
+
+      <div class="field">
+        <%= form.label :宛先 %>
+        <%= form.collection_select :receiver_id,  User.where.not(id:current_user), :id, :name, include_blank: "選択して下さい" %>
+      </div>
+
+      <div class="field">
+        <%= form.label :メッセージ %>
+        <%= form.text_area :comment %>
+      </div>
+
+      <div class="actions">
+        <%# <button type="submit" class="btn btn-outline-primary">投稿する</button> %>
+        <%= form.submit "感謝を投稿", class: 'btn btn-primary'%>
+        <%= form.submit "下書きを保存", class: 'btn btn-outline-secondary' %>
+      </div>
+    <% end %>
+    <br>
+      <%= link_to '戻る', posts_path %>
   </div>
 </div>
