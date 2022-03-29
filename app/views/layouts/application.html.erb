@@ -27,6 +27,7 @@
     <div class = "header">
           <% if current_user.try(:admin) %>
         <p class = "header-left">
+            
             <a class = "header_column"><%= link_to "TOP画面", admin_posts_path %></a>
             <a class = "header_column"><%= link_to "ユーザー管理", admin_users_path %></a>
             <a class = "header_column"> <%= link_to "部門管理", admin_departments_path %></a>

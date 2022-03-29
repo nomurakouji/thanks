@@ -38,13 +38,14 @@ $fa-font-path: '@fortawesome/fontawesome-free/webfonts';
 }
 .gnav a {
   color: white;
+  font-weight: 600;
 }
 .gnav li li {
   // 表示欄からはみ出た要素を隠す
   overflow: hidden;
   height: 0;
   // 0.5秒でアニメーション表示
-  transition: .5s;
+  transition: 0.5s;
 }
 // hover => マウスオーバーした際の挙動を指定 
 .gnav li:hover > ul > li {
@@ -52,8 +53,9 @@ $fa-font-path: '@fortawesome/fontawesome-free/webfonts';
   height: 2rem;
   // 表示欄の表示方法は初期値のまま
   overflow: visible;
-  margin-top: 0.5rem;
+  margin-top: 1rem;
 }
+
 
 
 a {
@@ -79,6 +81,7 @@ a {
     // display: table-cell;
     margin-top: 1rem;
     text-align: left;
+    font-weight: 600;
   }
 
 .header_column {
@@ -97,6 +100,7 @@ a {
     display: table-cell;
     color: white;
     padding-right: 1rem;
+    font-weight: 600;
   }
 
   .header-right-right {
@@ -106,6 +110,11 @@ a {
     padding-top: 1rem;
   } 
   .header-right a {
+    color: white;
+    display: inline-block;
+    margin-left: 1rem;
+   }
+   .header-right a:hover {
     color: white;
     display: inline-block;
     margin-left: 1rem;
@@ -147,4 +156,9 @@ a {
 // ホバー時のデザイン
 .pagination>li>a:hover {        
   border-radius: 15px;    
+}
+
+.start img {
+  width: 5%;
+  height: auto;
 }
